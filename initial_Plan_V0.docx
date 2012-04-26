@@ -1,0 +1,544 @@
+﻿1.  Overview
+1.1  Project Summary
+1.1.1  Purpose, scope and objectives
+The project comprises a web based system for organizations or associations who have a need for having their members informed in an easy way. The system makes it easy to handle membership and sharing information within the organization or association. Since many years, physical association boards were used by the associations to inform their members/nonmembers about their activities. These association boards have gradually lost their value as the society grew more modern. The idea is to reintroduce the concept of an association board but in a digital way, a web based association management tool. We would like to call this tool as “Web Association Board” abbreviated WAB.
+The WAB will have two information boards for every organization/association that registers. Those are the “Main Information Board” and the “Forum”.
+The scope of the product includes all the following
+The “organization-admin” of the particular organization will be the one who can register his/her organization and its members.
+The “organization-admin” is a member of a particular organization and he/she can hold any position within the organization. So it would be possible to give every member within the system a member title according to the title at the organization. Example: if John Anderson is the chairman of the organization then it is possible to refer him as John Anderson (Chairman) within the system.
+Every organization will get a front page where the “organization-admin” can write a presentation of the organization including its organization number. It is the choice of “organization-admin” to have the information private or public.
+It is the “organization-admin” who will register the members of the organization and give them different kind of authority. Authority should be given under each uer-type. 
+So Organization-admin  have to create a uer-type.
+Every member will have a member profile page with profile information. But it is the “organization-admin” who sets what information is private and public for member profiles as well. Example: a “normal member” can never make his/her profile public if the “organization-admin” has set it as private.
+It should be possible for the “organization-admin” to give any members the authority to post article at the main board directly or send in proposals for article to be posted there who has permission to post article directly in main board. Those proposals can be done by any member.
+Every article should have a title, headings, text, footer and should be labeled with date, time, expire date and who created it. 
+During the posting of an article the user can send out notifications through email. Even the possibility to send out the whole article as an email.
+Posted articles should have options for light editing of text.
+The “Forum” page should be accessible for all registered members of an organization.
+Should provide general discussions without any specific starting point between members.
+Any posted article before its expiry should open up the forum page when clicked so that any registered member can comment on the article.
+Every comment should have the name of the registered member who wrote it.
+Every member can communicate with each other within the organization using an email system.
+Every member should be able to change their password and profile information.
+
+The followings are those which are out of the scope of the product
+Communication within the members through SMS or Physical Letter (except Email).
+Membership fee payment system.
+Transparency of user actions.
+Access by people other than the members of the registered organization (anyone in internet).
+Access by people without registering (public forum).
+Creation and maintenance of address list or phone list of members.
+
+The following will be the scope of this project
+Identify and gather all the requirements for the product.
+Determining the models to be used to develop the product.
+Planning on schedule, budget and all other managerial processes to develop the product successfully.
+Executing the structured plan and develop the product to meet the requirements and specification.
+Completing the product and delivering it.
+The objective of the project is to successfully develop the product “WAB” by following all the managerial processes that are found suitable.
+1.1.2  Assumptions and constraints
+Some assumptions are to be made in order to proceed and complete the project successfully. The assumptions are as follows
+No member of the group will quit or leave before completion of the project.
+All members will equally participate in all processes of the project.
+Required resources (both software and hardware) are already available or will be available.
+The customers of our project will be Mr. Michael Unterkalmsteiner and Mr. Bogdan Marculescu.
+The product built is not funded by anyone but in order to understand the importance of keeping the project within budget, a fixed sum of money (imaginary) is considered as the fund.
+No actual user for our product exists and hence the customers may be considered the users.
+The product is a web page and forum with user preferences and hence we make use of a database with limited size (not large).
+As far as the constraints are concerned, we were able to identify only the following at the moment. It is possible to encounter more as we proceed with project
+The number of members involved in this project is three. Two members of the group lack experience in software development and management. Only one member has experience in both aspects and hence the other members are dependant to this member. There was also no common identified programming language skill among the members which makes the situation more difficult.
+Time would be a major constraint while undertaking any software project. Given the constraint mentioned earlier, makes time more critical for our project as two members have to learn and work on the product development simultaneously.
+1.1.3  Project deliverables
+The deliverables of the project includes the WAB (Web Association Board) which is an online application and it is accompanied by a relevant database. The project plan may also be included in the deliverables. All the mentioned will be delivered at the campus of BTH on the day of presentation. 
+
+1.1.4  Schedule and budget summary
+
+The schedule should be meet a fixed deadline on the 10th of June 2012 when the project is finally presented. There have a fact that all project's team members have another university courses to attend and to work for. Moreover, different holidays and other impacts that may cause unavailability of certain members have to be taken into account regarding the schedule.
+
+As this is a university project within the limits of the corresponding course and comes in the form of a group assignment the available financial budget has to be considered as not present or only as big as the project team is willing to contribute private expenses.
+
+4.  Project organization
+4.1  External interfaces
+The product to be developed was the idea put up by one of the members of the product development team and therefore there is no identified parent organization and acquirer organization. The project is handled by only the developing team and hence there is also no subcontracted organization involved. The only organization other than the developing team that interacts with the project is the client who will evaluate and provide feedback.
+4.2  Internal structure
+The developing team consists of three students who are responsible for the project completion. Communication between the members of the organization is primarily through email (gmail) and sharing of documents and resources is through dropbox. As mentioned earlier, only one member possesses adequate knowledge and experience in the product domain and hence frequent group meeting are considered in schedule for the other members to gain some knowledge to be helpful in developing the product.
+4.3 Roles and responsibilities
+Each member in the development team is experienced in a completely different field than the other and hence there was nothing identified as common. The product to be developed was the idea proposed by one member of the team and he alone possesses adequate knowledge in that aspect. So any process of the project will depend upon his suggestions but it is yet to decide the roles for each member as we are only three. It is also being considered that every member should act as a project manager, and analyst so as to understand the art of project management. But as far as the implementation part is concerned, M.D. Abu Taher will take the lead role as developer and the other two members will be helping him.
+5.  Managerial process plans
+5.1  Project startup plan
+5.1.1  Estimation plan
+Successfully completing the project requires initial estimation of its cost, resources and clear scheduling which in-turn requires the size of the project. For a software, its size could be measured using the number of lines of source code but it is difficult to guess the number completing the software. The other way of determining the size is by calculating the number of functional points has software has and this could be done using COSMIC functional size measurement method.
+
+The following part lists functional points (FP) in the project.:
+
+FP1: Organization Registration.
+
+E- Enter Organization data
+
+W- Organization data
+
+X- Confirmation or error message
+
+Size of FP1 = 3 CFP
+
+
+FP2: Update Organization data.
+
+E- Update Organization data
+
+W- Organization data
+
+X- Confirmation or error message
+
+Size of FP2 = 3 CFP
+
+
+FP3: Member Registration.
+
+E- Enter Member data
+W- Member data
+X- Confirmation or error message
+
+Size of FP3 = 3 CFP
+
+
+
+FP4: Update Member Profile.
+
+E- Update Member data
+W- Member data
+X- Confirmation or error message
+
+Size of FP4 = 3 CFP
+
+
+FP5: The Organization logs in to the system
+
+
+E- Username and password
+
+R- Verification
+
+X- Confirmation or error message
+
+Size of FP5 = 3 CFP
+
+
+FP6: The member logs in to the system
+
+
+E- Username and password
+
+R- Verification
+
+X- Confirmation or error message
+
+Size of FP6 = 3 CFP
+
+
+FP7: Organization-admin write a presentation of the organization
+
+E- Enter presentation data
+W- Presentation data
+X- Confirmation or error message
+
+Size of FP7 = 3 CFP
+
+
+
+FP8: Organization-admin update presentation of the organization
+
+E- Update presentation data
+W- Presentation data
+X- Confirmation or error message
+
+Size of FP8 = 3 CFP
+
+
+
+FP9: Organization-admin set a privacy for presentation page of the organization
+
+E- Select Privacy
+W- Privacy selection
+X- Confirmation or error message
+
+Size of FP9= 3 CFP
+
+
+
+FP10: Organization-admin update privacy settings for presentation page of the organization
+
+E- Update Privacy
+W- Privacy selection
+X- Confirmation or error message
+
+Size of FP10= 3 CFP
+
+
+
+FP11:  Organization-admin create a user-type
+
+E- Enter user-type
+W- User-type
+X- Confirmation or error message
+
+Size of FP11= 3 CFP
+
+
+
+FP12:  Organization-admin update user-type
+
+E- Update user-type
+W- User-type
+X- Confirmation or error message
+
+Size of FP12= 3 CFP
+
+
+
+
+
+
+
+
+
+FP13:  Organization-admin set authority to user-type
+
+E- Select authority
+W- Authority Selection
+X- Confirmation or error message
+
+Size of FP13= 3 CFP
+
+
+
+FP14:  Organization-admin update  authority settings to user-type
+
+E- Update authority
+W- Authority Selection
+X- Confirmation or error message
+
+Size of FP14= 3 CFP
+
+
+FP15:  Organization-admin set privacy for member-profile
+
+E- Select Privacy
+W- Privacy Selection
+X- Confirmation or error message
+
+Size of FP15= 3 CFP
+
+
+FP16:  Organization-admin update privacy settings for member-profile
+
+E- Update Privacy
+W- Privacy Selection
+X- Confirmation or error message
+
+Size of FP16= 3 CFP
+
+
+FP17:  Member post article to main-board
+
+E- Enter article data
+W- Article data
+X- Confirmation or error message
+
+Size of FP17= 3 CFP
+
+
+FP18:  Member update article data
+
+E- Update article data
+W- Article data
+X- Confirmation or error message
+
+Size of FP18= 3 CFP
+
+
+
+FP19:  Member send proposal for article to be posted in main-board 
+
+E- Enter Proposal data
+W- Proposal data
+X- Confirmation or error message
+
+Size of FP19= 3 CFP
+
+
+FP20:  Article posting notifications via email
+
+E- Enter notification data
+W- Notification data
+X- Confirmation or error message
+
+Size of FP20= 3 CFP
+
+
+FP21:  Send whole Article via email
+
+E- Enter Article data
+W- Send article data
+X- Confirmation or error message
+
+Size of FP21= 3 CFP
+
+
+FP22:  Comment on posted article in main-board
+
+E- Enter commenting data
+W- Commenting  data
+X- Confirmation or error message
+
+Size of FP22= 3 CFP
+
+
+FP23:  Update commenting data for article posted in main-board
+
+E- Update commenting data
+W- Commenting  data
+X- Confirmation or error message
+
+Size of FP23= 3 CFP
+
+
+FP24:  Start in-general discussions in forum 
+
+E- Enter discussions data
+W- Discussions  data
+X- Confirmation or error message
+
+Size of FP24= 3 CFP
+
+
+FP25:  Update discussions topic in forum 
+
+E- Update discussions data
+W- Discussions  data
+X- Confirmation or error message
+
+Size of FP25= 3 CFP
+
+
+FP26:  Comment on in-general discussions  in forum 
+
+E- Enter commenting data
+W- Commenting  data
+X- Confirmation or error message
+
+Size of FP26= 3 CFP
+
+
+FP27:  Communications between member within organization via email
+
+E- Enter email data
+W- Email  data
+X- Confirmation or error message
+
+Size of FP27= 3 CFP
+
+
+FP28:  Member change password
+
+E- Enter password data
+W- Password  data
+X- Confirmation or error message
+
+Size of FP28= 3 CFP
+
+
+FP29:  Organization-admin change password
+
+E- Enter password data
+W- Password  data
+X- Confirmation or error message
+
+Size of FP29= 3 CFP
+
+
+Size of this Functional User Requirement (FUR)
+= Size (FP1) + Size (FP2) + Size(FP3) + Size(FP4) + Size(FP5) + Size(FP6) + Size(FP7) +Size(FP8) + Size(FP9) + Size(FP10)Size(FP11) + Size(FP12) +Size(FP13) +Size(FP14) +Size(FP15) +Size(FP16) +Size(FP17) +Size(FP18) +Size(FP19) +Size(FP20) +Size(FP21) +Size(FP22) +Size(FP23) +Size(FP24) +Size(FP25) +Size(FP26) +Size(FP27) +Size(FP28) +Size(FP29) 
+=3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu+3Cfsu
+= 87 CFP
+
+5.1.2  Effort estimation
+
+We use PHP5 as the main development tool. We estimate it takes 15 development man hours for developing each functional point and each individual team member works on the project for 5 hours delicately per day.
+For PHP = 10hours/CFP
+Estimated development effort
+= 87CFP*15 man hours/CFP*days/5 hours
+= 261 man days
+Estimated administrative effort
+= 87 CFP*4 man hours/CFP*days/5 hours
+= 69.6 man days
+Estimated documentation and development support effort
+= 87 CFP*5 man hours/CFP*days/5 hours
+= 87 man days
+Estimated total effort = 417.6 man days
+5.1.3  Cost estimation
+
+Team = 3 men
+Cost per man day^2 = 3 project manager 
+= 950sek/man day
+Estimated total cost = 396,720sek
+5.1.4  Staffing plan
+ The following table depicts the human resource management plan for the project. As discussed in earlier sections it is yet to assign specific roles to the members of the team. Also it is agreed that the roles of project manager and system analyst will be taken by every member from the beginning till the end of the project so as to learn and understand the objectives of the course “Applied Software Project Management” better.
+Name of Member
+Roles
+Skills Required
+Project phase
+Start date
+Expected end date
+Source
+Saravanan Dhasarathan
+Project Manager,
+System Analyst, Testing
+Project management skill, Problem analysing and Documentation skill
+All phases
+06-April-2012
+20-May-2012
+Students participating in course ASPM
+M.D. Abu Taher
+Project Manager, Developer
+Project management skill, Programming skills
+All phases
+(Emphasis on implementation / execution phase)
+11-April-2012
+20-May-2012
+Students participating in course ASPM
+Musharaf Hameed
+Project Manager, System analyst,
+Tester
+Project management skill, Problem analysing and Documentation skill
+All phases
+06-April-2012
+20-May-2012
+Students participating in course ASPM
+
+5.1.5  Resource acquisition plan
+This section highlights the hardware and software resources that will be required to successfully complete the undertaken project.
+5.1.5.1  Hardware resource
+The hardware resource consists of only the personal computer / laptop computers which have almost equivalent configurations. Every member owns his own laptop in which they will work. The minimum configuration would be Pentium Core 2 duo processor 1.4 GHz, 1 GB RAM and 40 GB hard disc space with wireless connectivity adapter.
+
+
+
+
+5.1.5.2  Software resource
+The following table shows the software required for the project, availability and project members familiarity with it.
+Name of Software
+Availability
+Familiarity
+Microsoft Windows 7 (OS)
+Available with all members
+Members have used at least for a year.
+Ubuntu 11.04
+Available with two members
+
+Members have used at least 5 months
+Microsoft Office Word (2007 / 10)
+Available with all members
+Members have extensively used.
+LibreOffice Writer
+
+Available with two members
+Members have used at least 5 months
+Microsoft project
+Can be downloaded from MSDN student account
+Very less familiarity. Guides and tutorials are required.
+
+Lampp
+
+
+Available with two members
+
+Members have used at least for 5 months.
+
+
+MySQL-work-bench 
+
+
+Available with two members
+
+Members have used at least for 5 months.
+
+
+MySQL
+
+
+Available with two members
+
+Members have used at least for 2 year.
+
+
+gPHPEdit
+
+
+Available with two members
+
+Members have used at least for 5 months.
+
+
+Git Hub
+
+
+Available with all members
+
+Very less familiarity. Guides and tutorials are required.
+
+
+
+
+
+
+
+
+
+5.1.5  Project staff training plan
+The staff training session will be decided by one of the team member who possesses the knowledge in the chosen programming language. As said earlier, the other members do not possess the knowledge on the chosen programming language but since this language makes use of object oriented concepts, it is believed that the members will be able to understand the basics and will be able to help the programmer. Individual effort is required from every member.
+5.2  Work plan
+
+
+
+5.3  Control plans
+5.3.1  Requirements control plan
+5.3.1.1  Requirements tracing
+All the requirements for the project has been stated in a word document and it has been shared to all members through dropbox. If any changes are to be made by any member, then that member will add his name and date besides the change made while the change itself is highlighted. Any change made in a file shared using dropbox will be notified to all members by the software itself. This will keep any member aware that something has been changed in requirements document.
+5.3.1.2  Requirements prioritization
+The prioritization of requirements is based on group discussions and a kind of voting method. The members discuss on which requirements should be given the highest priority and the agreed upon ideas are noted down on a word document. We plan to have this in future as well because the requirements are not very diverse and large in number. Also this method helps all members in understanding the concept of requirement prioritization. If any misplacements of requirements discovered during implementation phase, it will be reflected in the document and a group discussion will be held so as to determine the reasons.
+5.3.1.3  Reporting
+We plan to use a requirements document to report and update all the requirements of the system. It is typically a word document handled by the system analysts.
+5.3.2 Schedule control plan
+The actual schedule for the project is not yet made because more emphasis is given to the implementation phase and the programmer is likely to have more work than the other members as they lack the required programming language skill. But anyhow as analyst and program managers the non-programmers will have to constantly observe the course of the project and reflect accordingly.
+5.3.3  Budget control plan
+The budget control plan intends to prevent the overall cost for completing the project from falling beyond the boundary. Our project is done as an assignment for a course “ASPM” and even though a cost is estimated (imaginary) using COSMIC functional points and COCOMO II model, we do not really have anything to control. Planning for a budget control would again deal with imaginary cost estimations.
+5.3.4 Quality control plan
+The quality of the project will be governed by all the members. The quality will be assessed through testing of the present (completed) project phase mostly after the implementation part. Once a functionality has been implemented the product will be tested by all members and any identified issued will be documented and will be rectified immediately. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.3.5  Reporting plan
+All reports are written as a Microsoft word document. Every member is free to use any formats for their self reference but when it is to be documented for the project then MS word document is the preferred one. File sharing (Dropbox) makes it easier to add contents to an existing file with highlighted date and name of member who added it. In-formal reports will be the most prominent which will be carried through group discussions (Orally or any written forms) and / or VOIP meetings.
+5.3.6  Metrics collection plan
+We are not really sure about collecting metrics for our project. As mentioned already the team already lacks programming skill and experience under the chosen programming language. With the time we have, it will only be possible to build the software by following the project plans. Metrics collection may be done after the project completion by comparing the test results and schedule promptness.
+5.4  Risk management plan
+Risk management is one of the important factors that influence the project’s success. Anyhow this is our first experience in developing software as a group (though similar tasks were undertaken in other courses, only implementation and final output was our main concern and not planning). The following are the risks that might arise during the course of the project.
+Misunderstanding among the team members may occur as this is our first experience in full fledged software development, sticking to project management rules. In order to avoid this situation, it is best that the members meet frequently even outside project schedules so as to bring a better understanding of each other. This has to be done alongside the project.
+Absence or inactivity of members due to illness or other course or personal issues possesses serious threat to the project. Illness cannot be avoided, in such case other members have to share the extra work among them and try to compensate. 
+Hardware failure of one member’s laptop has happened two times before, so if again  that is to happen during the project then it will lead to issues. It could only be overcome by sharing hardware (laptop) among members or making use of systems that are available in school.
+Software failures like OS crashes may occur occasionally but can be rectified in a day. In case of serious issues, laptops have to be shared or school’s systems should be made use of.
+The time we have is the major risk factor. It is believed that the project could be completed in the scheduled time duration but as this is our first experience, there is high possibility of getting delayed or missing the targeted delivery time. This can only be avoided by being prompt and strictly sticking to the schedules. Extra effort may also be required depending upon the situation and hence members should cooperate.
+Lack of knowledge in the programming language chosen. As mentioned in earlier sections, only one member has knowledge and experience in PHP and hence the implementation phase would take long. This delay could be shortened by giving in additional effort to understand the PHP concepts and at least helping in small coding parts.
+Other course may have an impact on the working time dedicated by members for this subject. For example one of the member has taken four courses including ASPM for this LP in which Research Methodologies is one. This may significantly reduce the work time. Self motivation and dedication could only be the possible ways to overcome this risk.
+We may encounter many risks as we proceed with the project and we believe that these risks can be managed through frequent group meetings and discussions and if necessary those could be documented. This is because most of the identified risk (for the moment) are either personal or individual oriented and of social values.
