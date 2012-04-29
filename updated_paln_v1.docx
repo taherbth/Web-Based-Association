@@ -1,0 +1,626 @@
+﻿1.  Overview
+1.1 Project Summary
+1.1.1 Purpose, scope and objectives
+The project comprises a web based system for organizations or associations who have a need for having their members informed in an easy way. The system makes it easy to handle membership and sharing information within the organization or association. Since many years, physical association boards were used by the associations to inform their members/nonmembers about their activities. These association boards have gradually lost their value as the society grew more modern. The idea is to reintroduce the concept of an association board but in a digital way, a web based association management tool. We would like to call this tool as “Web Association Board” abbreviated WAB.
+The WAB will have two information boards for every organization/association that registers. Those are the “Main Information Board” and the “Forum”.
+The scope of the product includes all the following
+The “organization-admin” of the particular organization will be the one who can register his/her organization and its members.
+The “organization-admin” is a member of a particular organization and he/she can hold any position within the organization. So it would be possible to give every member within the system a member title according to the title at the organization. Example: if John Anderson is the chairman of the organization then it is possible to refer him as John Anderson (Chairman) within the system.
+Every organization will get a front page where the “organization-admin” can write a presentation of the organization including its organization number. It is the choice of “organization-admin” to have the information private or public.
+It is the “organization-admin” who will register the members of the organization and give them different kind of authority. Authority should be given under each uer-type. 
+
+Every member will have a member profile page with profile information. Member can update his/her profile information.
+
+It should be possible for the “organization-admin” to give any members the authority to post article at the main board directly or send in proposals for article to be posted there who has permission to post article directly in main board. Those proposals can be done by any member.
+Every article should have a title, headings, text, and footer and should be labeled with date, time, expire date and who created it. 
+During the posting of an article the user can send out notifications through email. Even the possibility to send out the whole article as an email.
+The “Forum” page should be accessible for all registered members of an organization.
+Should provide article related discussions in forum between members.
+Any posted article before its expiry should open up the forum page when clicked so that any registered member can comment on the article.
+Every comment should have the name of the registered member who wrote it.
+Every member should be able to change their password.
+
+The followings are those which are out of the scope of the product
+Communication within the members through SMS or Physical Letter and Email.
+Membership fee payment system.
+Transparency of user actions.
+Access by people other than the members of the registered organization (anyone in internet).
+Access by people without registering (public forum).
+Creation and maintenance of address list or phone list of members.
+The following will be the scope of this project
+Identify and gather all the requirements for the product.
+Determining the models to be used to develop the product.
+Planning on schedule, budget and all other managerial processes to develop the product successfully.
+Executing the structured plan and develop the product to meet the requirements and specification.
+Completing the product and delivering it.
+The objective of the project is to successfully develop the product “WAB” by following all the managerial processes that are found suitable.
+
+1.1.2 Assumptions and constraints
+Some assumptions are to be made in order to proceed and complete the project successfully. The assumptions are as follows
+No member of the group will quit or leave before completion of the project.
+All members will equally participate in all processes of the project.
+Required resources (both software and hardware) are already available or will be available.
+The customers of our project will be Mr. Michael Unterkalmsteiner and Mr. Bogdan Marculescu.
+The product built is not funded by anyone but in order to understand the importance of keeping the project within budget, a fixed sum of money (imaginary) is considered as the fund.
+No actual user for our product exists and hence the customers may be considered the users.
+The product is a web page and forum with user preferences and hence we make use of a database with limited size (not large).
+As far as the constraints are concerned, we were able to identify only the following at the moment. It is possible to encounter more as we proceed with project
+The number of members involved in this project is three. Two members of the group lack experience in software development and management. Only one member has experience in both aspects and hence the other members are dependant to this member. There was also no common identified programming language skill among the members which makes the situation more difficult.
+Time would be a major constraint while undertaking any software project. Given the constraint mentioned earlier, makes time more critical for our project as two members have to learn and work on the product development simultaneously.
+
+1.1.3 Project deliverables
+The deliverables of the project includes the WAB (Web Association Board) which is an online application and it is accompanied by a relevant database. The project plan may also be included in the deliverables. All the mentioned will be delivered at the campus of BTH on the day of presentation. 
+1.1.4 Schedule and budget summary
+The schedule should meet a fixed deadline on the 10th of June 2012 when the project is finally presented. There have a fact that all project's team members have another university courses to attend and to work for. Moreover, different holidays and other impacts that may cause unavailability of certain members have to be taken into account regarding the schedule.
+
+As this is a university project within the limits of the corresponding course and comes in the form of a group assignment the available financial budget has to be considered as not present or only as big as the project team is willing to contribute private expenses.
+
+1.2 Evolution of plan
+The plan may evolve throughout the life-cycle of this project. Any changes made by any member of the team will be reflected in the upcoming version of the project plan. 
+
+2. References
+
+[1]. IEEE Std 1058-1998. IEEE Standard for Software Project Management Plans. The
+Institute of Electrical and Electronics Engineers, Inc.
+[2]. Adoption of PMI Standard, A Guide to the Project Management Body of Knowledge 
+(PMBOK® Guide). (2003). IEEE Std. 1490-2003.
+[3]. Software artifact,
+http://en.wikipedia.org/wiki/Artifact_%28software_development%29
+[4]. Software verification and validation,
+http://en.wikipedia.org/wiki/Verification_and_Validation_%28software%29
+[5]. Crosby’s definition of quality, http://en.wikipedia.org/wiki/Philip_B._Crosby
+
+
+
+3.  Definitions
+SPMP : Software Project Management Plan
+ASPM: Applied Software Project Management
+PM: Project Manager
+BTH: Blekinge Tekniska Hogskola
+Artifacts: Word documents, software required, source code of the software developed, meeting reports, individual reports, assignment feedbacks etc.
+
+4.  Project organization
+4.1 External interfaces
+The product to be developed was the idea put up by one of the members of the product development team and therefore there is no identified parent organization and acquirer organization. The project is handled by only the developing team and hence there is also no subcontracted organization involved. The only organization other than the developing team that interacts with the project is the client who will evaluate and provide feedback.
+4.2 Internal structure
+The developing team consists of three students who are responsible for the project completion. Communication between the members of the organization is primarily through email (gmail) and sharing of documents and resources is through dropbox. As mentioned earlier, only one member possesses adequate knowledge and experience in the product domain and hence frequent group meeting are considered in schedule for the other members to gain some knowledge to be helpful in developing the product.
+4.3 Roles and responsibilities
+Each member in the development team is experienced in a completely different field than the other and hence there was nothing identified as common. The product to be developed was the idea proposed by one member of the team and he alone possesses adequate knowledge in that aspect. So any process of the project will depend upon his suggestions but it is yet to decide the roles for each member as we are only three. It is also being considered that two members should act as a project manager, and three members act as analyst so as to understand the art of project management. But as far as the implementation part is concerned, M.D. Abu Taher will take the lead role as developer and the other two members will be helping him.
+
+5.  Managerial process plans
+5.1 Project startup plan
+5.1.1 Estimation plan
+Successfully completing the project requires initial estimation of its cost, resources and clear scheduling which in-turn requires the size of the project. For a software, its size could be measured using the number of lines of source code but it is difficult to guess the number completing the software. The other way of determining the size is by calculating the number of functional points has software has and this could be done using COSMIC functional size measurement method.
+
+The following part lists functional points (FP) in terms of CFPs in the project:  We found total 53 CFP.
+
+No
+Functional Process
+Data Movement Description
+DM Type
+CFP
+Total CFs
+1
+Organization-admin Registration.
+Enter Organization data
+Write Organization data
+Confirmation or error message
+E
+W
+X
+1
+1
+1
+3
+2
+Update Organization-admin data.
+
+Update Organization data
+Write Organization data
+Confirmation or error message
+
+E
+W
+X
+1
+1
+1
+3
+3
+Member Registration.
+
+Enter Member data
+Write Member data
+Confirmation or error message
+E
+W
+X
+1
+1
+1
+3
+4
+Update Member Profile.
+
+Update Member data
+Write Member data
+Confirmation or error message
+
+E
+W
+X
+1
+1
+1
+3
+5
+User logs in to the system
+Enter Username and password
+Login Verification
+Confirmation or error message
+
+E
+R
+X
+1
+1
+1
+3
+6
+Organization-admin set authority to user-type
+Select authority
+Write Authority Selection
+Confirmation or error message
+
+E
+W
+X
+1
+1
+1
+3
+7
+Organization-admin update  authority settings to user-type
+Update authority
+Write Authority Selection
+Confirmation or error message
+
+E
+W
+X
+
+1
+1
+1
+3
+8
+Member post article to main-board
+Enter article data
+Write Article data 
+Confirmation or error message
+
+E
+W
+X
+1
+1
+1
+3
+9
+Member send proposal for article to be posted in main-board
+Enter Proposal data 
+Write Proposal data 
+Confirmation or error message
+
+E
+W
+X
+1
+1
+1
+3
+10
+Admin approval of proposal for article to be posted in main-board
+Select Confirmation or rejection
+Write Status 
+Confirmation or error message
+
+E
+W
+X
+1
+1
+1
+3
+11
+Article posting notifications/whole article via email
+Enter notification data
+Confirmation or error message 
+E
+X
+1
+1
+2
+
+
+
+12
+View Main-board
+
+Select main-board tab
+Read main-board data
+Display main-board page
+
+E
+R
+X
+1
+1
+1
+3
+13
+View organization presentation page
+Select home tab
+Read  presentation  data
+Display presentation page
+E
+R
+X
+1
+1
+1
+3
+14
+Display member-profile
+Select my profile tab
+Read  profile data
+Display profile page
+E
+R
+X
+1
+1
+1
+3
+15
+Display organization-admin profile 
+
+Select my profile tab
+Read  profile data
+Display profile page
+E
+R
+X
+1
+1
+1
+3
+16
+Comment on posted article in main-board
+Select article
+Read article data
+Display Article data
+Enter commenting data
+Write Commenting  data
+Confirmation or error message
+
+E
+R
+X
+E
+W
+X
+1
+1
+1
+1
+1
+1
+6
+17
+Change password
+
+Enter password data
+Write Password  data
+Confirmation or error message
+E
+W
+X
+1
+1
+1
+3
+                                                                                                                                                    Total     53
+
+
+Once calculating the COSMIC Functional Points (CFPs) is done, we will follow the COCOMO model to calculate development effort and cost: 
+COCOMO (Constructive Cost Model) model is used to measure the effort, cost and schedule of a software project. This is done using either the number of source code lines or the number of Cosmic Functional Points as the size of the project. We have used an online tool which makes use of COCOMO II model for estimating the effort and cost of our project. The input for the online tool is shown in the following image.
+http://csse.usc.edu/tools/COCOMOII.php
+
+
+
+
+The output of the online COCOMO II tool is as follows.
+
+Schedule estimation
+The schedule estimation can be calculated from the result of the COCOMO II tool. 
+Inception = 0.3
+Elaboration = 1.4
+Construction = 4.7
+Transition = 0.6 
+Total = Inception + Elaboration + Construction + Transition = 0.3+1.4+4.7+0.6= 7
+So total of 7 person months and our team has 3 members. Therefore 7 / 3 = 2.33 months.
+The project was estimated to be of 2.3 months but due to time constraints we reduce this to 45 days. This is because of the reason that the number of functional points (CFP) has already been reduced due to less number of members and limited time.
+Resource estimation
+The resources for this project are three members of the team, their hardware (Laptops and accessories) and software (IDE, Skype, MS Word, Windows, Linux, MS Project, Acrobat reader, any browser, GetHub etc). There are no estimations on the resources this project may consume as they are either fixed quantity or freely available.
+Cost estimation
+There is no actual cost involved in our project but for the sake of better understanding of the concepts we have assumed a salary of 3000 USD/month for each member. 
+Salary per month = 3000 USD
+Salary per day = 3000 / 30 = 100 USD
+Salary for each member for entire project = 100 * 45 = 4500 USD
+Therefore, the cost of salary for the entire team during the project will be = 4500 * 3 = 13500 USD.
+5.1.2 Staffing plan
+ The following table depicts the human resource management plan for the project. As discussed in earlier sections it is yet to assign specific roles to the members of the team. Also it is agreed that the roles of project manager and system analyst will be taken by every member from the beginning till the end of the project so as to learn and understand the objectives of the course “Applied Software Project Management” better.
+Name of Member
+Roles
+Skills Required
+Project phase
+Start date
+Expected end date
+Source
+Saravanan Dhasarathan
+Project Manager,
+System Analyst, Testing Engineer.
+Project management skill, Problem analysing and Documentation skill
+All phases
+(PM during Development phase)
+06-April-2012
+30-May-2012
+Students participating in course ASPM
+M.D. Abu Taher
+Project Manager, Senior Developer, Architecture & DB designer, Analyst.
+Project management skill, Programming skills
+All phases
+(PM during Initial and close-out phase)
+11-April-2012
+30-May-2012
+Students participating in course ASPM
+Musharaf Hameed
+System analyst,
+Testing Engineer.
+Project management skill, Problem analysing and Documentation skill
+All phases
+
+06-April-2012
+30-May-2012
+Students participating in course ASPM
+
+5.1.3 Resource acquisition plan
+This section highlights the hardware and software resources that will be required to successfully complete the undertaken project.
+5.1.3.1 Hardware resource
+The hardware resource consists of only the personal computer / laptop computers which have almost equivalent configurations. Every member owns his own laptop in which they will work. The minimum configuration would be Pentium Core 2 duo processor 1.4 GHz, 1 GB RAM and 40 GB hard disc space with wireless connectivity adapter.
+5.1.3.2 Software resource
+The following table shows the software required for the project, availability and project members’ familiarity with it.
+Name of Software
+Availability
+Familiarity
+Microsoft Windows 7 (OS)
+Available with all members
+Members have used at least for a year.
+Ubuntu 11.04
+
+Available with two members
+
+Members have used at least 5 months
+Microsoft Office Word (2007 / 10)
+Available with all members
+Members have extensively used.
+Microsoft project
+Can be downloaded from MSDN student account
+Very less familiarity. Guides and tutorials are required.
+Lampp
+
+Available with two members
+Members have used at least for 5 months.
+MySQL-work-bench 
+
+Available with two members
+Members have used at least for 5 months.
+MySQL
+
+Available with two members
+Members have used at least for 2 year.
+
+gPHPEdit
+
+Available with two members
+Members have used at least for 5 months.
+
+Git Hub
+
+Available with all members
+Very less familiarity. Guides and tutorials are required.
+Skype (VOIP)
+Available with all members
+Members have extensively used.
+
+5.2 Work Plan
+5.2.1 Work activities
+The work activity of the project can be best described by the work breakdown structure (WBS) which is given in the following: 
+
+Work Breakdown Structure Dictionary
+
+Web based Association Board
+WBS Code
+Element Name
+Definition
+1
+Initial
+Initial stage of the project.
+1.1
+Introduction Meeting
+A meeting for team members to introduce themselves.
+1.2
+Project Selection meeting
+Team members discussion on the choice of a software project for the course.
+1.3
+Scope of the Project
+Identification and Documentation of the Scope of the selected project.
+2
+Planning
+To plan and schedule the project development process.
+2.1
+Develop initial SPMP
+Members develop the initial project management plan for the software to be developed.
+2.2
+Evaluation & Feedback on initial SPMP
+The initial SPMP will be given to clients (Professors) and their feedback will be obtained.
+2.3
+Updated SPMP
+The SPMP is updated according to the feedback received and submitted again on 20th April 2012.
+3
+Development
+Actual development of the software product.
+3.1
+Project Execution Meeting
+Team members meet to discuss about the development of project, schedule and issues.
+3.2
+Gathering Software and Hardware Resources
+The hardware is available and thus the software that is required to build the software is downloaded and installed in the hardware (laptop).
+3.3
+Analyze and Prioritize Requirements
+The finalized software product requirements are again analyzed by System analysts and Programmer and then they are prioritized.
+3.4
+System Design
+The programmer designs the software system to be developed.
+3.5
+Coding
+The programming or coding in the selected computer language is performed until the whole software is built.
+3.6
+Testing
+The developed software is tested using test cases and checklists.
+3.7
+Product Presentation
+The developed software is presented and demonstrated to the clients (Professors).
+4
+Monitoring & Controlling
+Means by which the software project is monitored and controlled.
+4.1
+Status & Follow Meeting
+Meetings in which the current status of the project is discussed and documented.
+4.1.1
+System Design Status
+A meeting between Project Manager, Programmer and Analyst to document the status of software design progress.
+4.1.2
+Coding Status
+A meeting in which the status of the programming part is documented and discussed.
+4.1.3
+Testing Status
+Meetings in which the Testing progress of the developed software is tested.
+4.2
+Risk Management
+Processes to identify and manage risks.
+4.2.1
+Risk Identification
+During status meetings, discussions for potential risks and existing risks are identified documented.
+4.2.2
+Risk Mitigation
+Identified risks will be discussed in order to find a solution to mitigate them.
+4.3
+Updating Plan
+Any changes identified during the course of the project will be reflected on the SPMP.
+5
+Project Close-Out
+The final phase of the software project.
+5.1
+Final Documentation
+The final documents of the software project will all changes that were made during the process is prepared.
+5.2
+Archive Artifacts
+All members of the team keeps a copy of this project for future reference.
+5.3
+Project Evaluation
+The completed project will be evaluated by the clients (Professors) after the project presentation. 
+5.4
+Project Acceptance
+The result on whether the completed project is accepted or rejected will be issued by the clients (Professors).
+
+5.2.2 Schedule Allocation
+
+
+
+
+5.3 Control Plans
+5.3.1 Requirements control plan
+5.3.1.1 Requirements tracing
+All the requirements for the project has been stated in a word document and it has been shared to all members through GitHub. This will keep any member aware that something has been changed in requirements document.
+5.3.1.2 Requirements prioritization
+The prioritization of requirements is based on group discussions and a kind of voting method. The members discuss on which requirements should be given the highest priority and the agreed upon ideas are noted down on a word document. We plan to have this in future as well because the requirements are not very diverse and large in number. Also this method helps all members in understanding the concept of requirement prioritization. If any misplacement of requirements discovered during implementation phase, it will be reflected in the document and a group discussion will be held so as to determine the reasons.
+5.3.1.3 Reporting
+We plan to use a requirements document to report and update all the requirements of the system. It is typically a word document handled by the system analysts.
+5.3.2 Schedule control plan
+The actual schedule for the project is not yet made because more emphasis is given to the implementation phase and the programmer is likely to have more work than the other members as they lack the required programming language skill. But anyhow as analyst and program managers the non-programmers will have to constantly observe the course of the project and reflect accordingly.
+5.3.2.1 Control Changes
+In order to control the changes that rise during the course of the project development, periodic status meetings are arranged. These meeting are to make sure that the changes that occurs during the project are kept minimal. 
+5.3.2.2 Status meeting
+Status meetings are scheduled to take place during the development phase of the project. During these meetings the progress of the current phase will be documented and also any changes in plan will be discussed and possible ways to prevent the project from falling away from the schedule will be determined.
+5.3.2.3 Member reports
+Though not scheduled, every member in the team is asked to send in a report concerning any issues or change of plans or progress/lags every week. This is to further enhance the schedule is kept intact and we do not fall behind. A Version Control System (GitHub) is made use of for this purpose.
+Access for Version Control System of WAB:
+https://github.com/taherbth/Web-Based-Association 
+
+5.3.3 Budget control plan
+The budget control plan intends to prevent the overall cost for completing the project from falling beyond the boundary. Our project is done as an assignment for a course “ASPM” and even though a cost is estimated (imaginary) using COSMIC functional points and COCOMO II model, we do not really have anything to control. Planning for a budget control would again deal with imaginary cost estimations.
+5.3.4 Quality control plan
+The quality of the project will be governed by all the embers. The quality will be assessed through testing of the present (completed) project phase mostly after the implementation part. Once a functionality has been implemented the product will be tested by all members and any identified issued will be documented and will be rectified immediately. 
+
+
+
+
+
+
+
+
+
+5.3.4.1 Testing
+The quality of the product is ensured by checking whether all the requirements have been met or not. This is done during the Testing phase after the Implementation of the entire product (basic Waterfall Model). Test cases will be written in order to perform testing and checklists will also be made use of. Checklists will be prepared by the tea members.
+
+5.3.5 Reporting Plan
+All reports are written as a Microsoft word document. Every member is free to use any formats for their self reference but when it is to be documented for the project then MS word document is the preferred one. 
+5.3.6 Metrics collection plan
+We are not really sure about collecting metrics for our project. As mentioned already the team already lacks programming skill and experience under the chosen programming language. With the time we have, it will only be possible to build the software by following the project plans. Metrics collection may be done after the project completion by comparing the test results and schedule promptness.
+5.4 Risk management plan
+Risk management is one of the important factors that influence the project’s success. Anyhow this is our first experience in developing software as a group (though similar tasks were undertaken in other courses, only implementation and final output was our main concern and not planning). The following are the risks that might arise during the course of the project.
+Misunderstanding among the team members may occur as this is our first experience in full fledged software development, sticking to project management rules. In order to avoid this situation, it is best that the members meet frequently even outside project schedules so as to bring a better understanding of each other. This has to be done alongside the project.
+Absence or inactivity of members due to illness or other course or personal issues possesses serious threat to the project. Illness cannot be avoided, in such case other members have to share the extra work among them and try to compensate. 
+Hardware failure of any member’s laptop has never happened, but again if that is to happen during the project then it will lead to issues. It could only be overcome by sharing hardware (laptop) among members or making use of systems that are available in school.
+Software failures like OS crashes may occur occasionally but can be rectified in a day. In case of serious issues, laptops have to be shared or school’s systems should be made use of.
+The time we have is the major risk factor. It is believed that the project could be completed in the scheduled time duration but as this is our first experience, there is high possibility of getting delayed or missing the targeted delivery time. This can only be avoided by being prompt and strictly sticking to the schedules. Extra effort may also be required depending upon the situation and hence members should cooperate.
+Lack of knowledge in the programming language chosen. As mentioned in earlier sections, only one member has knowledge and experience in PHP and hence the implementation phase would take long. This delay could be shortened by giving in additional effort to understand the PHP concepts and at least helping in small coding parts.
+Other course may have an impact on the working time dedicated by members for this subject. For example one of the members has taken four courses including ASPM for this LP in which Research Methodologies is one. This may significantly reduce the work time. Self motivation and dedication could only be the possible ways to overcome this risk.
+We may encounter many risks as we proceed with the project and we believe that these risks can be managed through frequent group meetings and discussions and if necessary those could be documentation. This is because most of the identified risk (for the moment) are either personal or individual oriented and of social values.
+
+5.5 Close-Out plan
+This project will be closed after the final presentation of the product to the clients. The close-out plan includes the final documentation which contains all that which the team encountered during the project development. Every member will have a copy of all the documents that were created and the product (all artifacts) saved in their personal computers as a future reference. The project close-out plan also includes the acceptanc of this project by the clients (Professors).
+
+6. Technical Process Plan
+6.1 Process model
+The requirements for this project are clear and fixed, so there are likely to be no changes in the functionality of the software. For these reasons the life-cycle model chosen is Waterfall model. The following diagram shows the life-cycle model which comprises of all or major processes of this project.
+
+                              
+
+6.2 Methods, tools and techniques
+The product is developed in the scripting language PHP and hence the chosen IDE is “gPHPEdit”. Microsoft Word and Project are used for documentation and project management purposes respectively. 
+6.3 Infrastructure plans
+As this is an academic project for the course ASPM, the infrastructural needs or plans are beyond the scope. But due to necessity of mentioning it in the plan, the major infrastructures will be regarded as the team members’ private rooms, BTH campus and the internet facility available in these places. 
+6.4 Product acceptance plan
+After the scheduled completion of the project, the same will be presented on 30th May, 2012. It is based upon this presentation the clients (Professors) will issue the product acceptance result. The day for the announcement of the result is not yet available.
+
+7. Supporting process Plan
+7.1 Configuration management plan
+We do not anticipate any change in the plan but in case of necessity any or all team members will identify and notify of the change to others. If the identified change is argued necessary for the project then it will be documented using MS Word and reflected in the documentation.
+7.2 Verification and validation plan
+Software verification and validation will be carried out during the testing phase of the project development life-cycle. Test case based testing (black box testing) and informal reviews will be carried out for the process.
+7.3 Documentation plan
+As mentioned in previous sections, we make use of MS Word for documenting our project. One of the members uses a Linux OS and hence will make use of Libre Office for the purpose. But these are no clashes between this software as the output file is of format .doc.
+
