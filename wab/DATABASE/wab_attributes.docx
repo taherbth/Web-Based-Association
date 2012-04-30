@@ -1,18 +1,18 @@
-﻿pk = primary key, fk = foreign key,uk=unique key
+﻿pk = primary key, fk = foreign key,uq=unique key
 
 
 
 organization _tbl
 organization_id (pk)		      	big integer	max 20    
-organization_number	    		varchar	max 20     
-organization_admin_user	    	varchar	min 6- max 20
-organization_admin_password    	varchar	min 8- max 20
-organization_name		   	varchar	max 100
+organization_number(uq)	    		varchar	max 20     
+organization_admin_user(uq)    	varchar	min 6- max 20
+organization_admin_password    	text	min 8- max 20
+organization_name(uq)		   	varchar	max 100
 primary_address		    	varchar	max 100
 optional_address		   	varchar	max 100
 organization_phone		   	varchar	max 30
 organization_fax		   	varchar	max 30
-organization_type		  	varchar	max 50
+organization_category_id(fk)	 	big integer	max 20    
 organization_profile_text		text		max 1000
 organization_logo		  	img		jpeg/
 organization_visibility	 	boolean (private or public presentation of profile)	
@@ -20,15 +20,22 @@ add_date			  	datetime
 update_date		  		timestamp
 	
 
+organization _category_tbl
+organization_category_id (pk)		      big integer	max 20    
+organization_category_name(uq)	      	      varchar	max 40
+add_date				      datetime
+update_date				      timestamp    
+
 
 member_tbl
 member_id (pk)			big integer           max 20
 organization_id (fk)			big integer           max 20
 member_type_id (fk)			big integer           max 20
-member_pnr (unique)			varchar	     max 12
+member_pnr (uq)	(member login)		varchar	     max 12
 member_first_name			varchar	     max 50
 member_last_name			varchar	     max 50
-member_user_name			varchar	     max 50
+member_title				varchar	     max 100
+member_user_name(member login)	varchar	     max 50
 member_email (member login)	varchar	     max 100
 member_login_password		varchar	     min 6-max 20
 member_address			text	                 max 100
@@ -37,24 +44,28 @@ member_city				varchar	     max 50
 member_cell_phone			varchar	     max 30
 member_home_phone		varchar	     max 30
 member_photo			jpeg/gif	     max 50kb
-member_title				varchar	     max 100
 member_profile_text			text
-member_appartment_no		big integer            max 20
+member_apartment_no		big integer            max 20
 member_household			varchar	     max 20
 membership_expire_date		datetime
-member_blocked			boolean	     max 1
+member_blocked			int	     max 1
 add_date				datetime
 update_date				timestamp
 
 
 
-member_type
+
+
+
+
+member_type_tbl
 member_type_id (pk)	 	big integer	max 20
 member_type_name  	  	varchar  	max 100
 add_date			datetime
 update_date		  	timestamp
 
-module_function_name
+
+module_function_name_tbl
 module_function_id(pk)	      	 big integer	      max 20
 module_function_html_id(uk)	 varchar                 max 100
 module_function_name		 text
@@ -62,15 +73,17 @@ add_date				 datetime
 update_date				 timestamp	
 
 
+
 module_function_access_tbl
 module_function_access_id(pk)	      	 big integer	      max 20
 module_function_id(fk)	      		 big integer	      max 20
 module_function_html_id(fk)	            varchar                 max 100
 organization_id (fk)		    		 big integer	      max 20    
-module_function_access			 int		      max 1
 member_type_id (fk)	  			 big integer	      max 20
-add_date				             datetime
+module_function_access			 int		      max 1
+add_date				             datetimeorganization_id (fk)		    		 big integer	      max 20    
 update_date				             timestamp	
+
 
 
 article_category_tbl
@@ -84,6 +97,8 @@ update_date				timestamp
 article _tbl
 article_id (pk)		  	   big integer   		max 20 
 article_category_id(fk)	   big integer	      	max 20
+member_id (fk)			big integer           max 20
+organization_id (fk)		    		 big integer	      max 20    
 article_title                     	   varchar		max 50 
 article_headings   	   	   text
 article_text     		   	   text    
@@ -108,8 +123,6 @@ comment 				text
 comment_date				datetime
 add_date				datetime
 update_date				timestamp
-
-
 
 
 
