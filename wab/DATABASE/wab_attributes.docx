@@ -105,6 +105,10 @@ article_text     		   	   text
 article_add_date  	               datetime   
 article_expire_date      	   datetime   
 article_importance  	    	   integer  		 max 2 (importance is graded 1-10)
+proposal_approved		   int			 max 1 default 1
+proposal_message	                 varchar 		 max 255
+article_posting_notification_via_email  int                                max 1 default 0
+send_whole_article_via_email               int                                max 1 default 0
 add_date    		    	   datetime
 update_date    		    	   timestamp
 
