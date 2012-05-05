@@ -1,0 +1,367 @@
+/* Remove or Reset Default Styles
+-------------------------------------------------------------------------*/
+* { margin:0; padding:0; list-style-type:none;}
+hr { display: none; }
+img { border: none; }
+a { text-decoration:none; color:#4f5150; }
+/* Clear Floats
+--------------------------------------------------------------------------*/
+.clear {
+	clear: both;
+	font-size: 0px;;
+	height: 0px;
+	line-height: 0px;
+	overflow: hidden;
+}
+
+
+body {
+	margin: 0px;
+	padding: 0px; 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: .7em;
+	color: #040404;
+	background: #FFFFFF;
+}
+
+
+/*loginbox*/
+#loginbox {
+	width:574px;
+	margin:auto;
+	margin-top:135px;
+}
+#login-box-top {
+	/*background:url(images/login-box-top.jpg) no-repeat left top;*/
+	/*background:url(images/login2.jpg) no-repeat left top;
+	height:37px;*/
+}
+#login-box-body {
+	background:url(images/login-box-bg.jpg) repeat-y left top;
+}
+#login-box-bottom {
+	background:url(images/login-box-bottom.jpg) no-repeat left top;
+	color:#d2d2d2;
+	text-align:center;
+	padding-top:5px;
+	height:32px;
+	font-weight:bold;
+}
+#login-box-body h1{
+	font-size:16px;
+	padding-left:36px;
+	padding-top:20px;
+	width:500px;
+}
+
+
+.error_msg{
+			text-align:center;
+			border:solid 0px #FF6600;			
+			color:#CC3300;
+			font-size:11px;
+			font-weight:bold;
+			position:relative;
+			margin-left:0px;
+			margin-top:10px;
+			margin-bottom:10px;
+			padding:10px;
+			margin:0px;
+			}
+.userbox {
+	margin-left:10px;
+	margin-top:18px;
+}
+.itembox {
+	width:215px;
+	margin-left:26px;
+	margin-right:27px;
+	float:left;
+}
+.login-uname {
+	width:207px;
+	display:block;
+	font-size:14px;
+	/*font-weight:bold;*/
+	color:#2a3035;
+}
+.login-inpuiitem {
+	width:205px;
+	border:1px solid #a6a6a6;
+	padding:3px;
+	margin-top:6px;
+	margin-bottom:6px;
+}
+.forgate-box {
+	margin-bottom:20px;
+}
+.itembox a {
+	font-size: 12px;
+	text-decoration:underline;
+	color:#683a09;
+	/*font-weight:bold;*/
+}
+.itembox a:hover {
+	color:#FFFFFF;
+	text-decoration:none;
+}
+.top10 {
+	margin-top:10px;
+}
+/*EndLoginbox*/	
+
+.headerdiv{
+	background: none repeat scroll 0 0 #F1F1F1;
+	border-bottom: 1px solid #D2D2D2;
+	border-top: 1px solid #D2D2D2;
+	clear: both;
+	height: 115px;
+	position: relative;
+	width: 100%;
+}
+
+.logo_header{
+	width:40%;
+	float:left;
+}
+
+.logo{
+	margin-left:30px;
+	margin-top:30px;
+	float:left;
+}
+
+.login_form{
+	width:55%;
+	margin-top:15px;
+	float:left;
+}
+
+#logo_text a{
+	text-transform:capitalize;
+	font-size:35px;
+	color:#9E4852;
+}
+
+.inputtext,.inputpassword {
+    border: 1px solid #BDC7D8;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    padding: 3px;
+}
+
+.email,.pass{
+	font-size:12px;
+	color:#504C4E;
+	padding-left:1px;
+}
+
+.login_form table tr td {
+    padding: 0 0 0 14px;
+}
+
+td, td.label {
+    font-size: 11px;
+    text-align: left;
+}
+
+.uiInputLabelRadio, .uiInputLabelCheckbox {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.login_form .login_form_label_field {
+    padding-top: 4px;
+}
+
+.uiInputLabel label{
+	color:#504C4E;
+	font-size:12px;
+}
+
+.login_form_label_field a{
+	padding-left:2px;
+	color:#504C4E;
+	font-size:12px;
+}
+
+.body_content{
+	clear: both;
+	width: 100%;
+	height:595px;
+	background-color:#FAF9FC;
+	
+}
+
+
+.body_content{
+	min-width:980px;
+}
+.body_content_design{
+	margin: 0 auto;
+	width:100%;
+}
+.body_content_left{
+	width:35%;
+	float:left;
+	border:1px solid red;	
+}
+.body_content_entire{
+	width:60%;
+	border:1px solid red;
+	float:right;
+}
+	
+.body_content_left_module_add{
+	padding: 20px;
+	width:18%;
+	float:left;
+	border-right:1px solid #CCCCCC;	
+}
+
+.body_content_entire_module_add{
+	padding: 20px;
+	width:75%;
+	float:right;
+}
+
+.label {
+    color: #22486D;
+    font-weight: bold;
+}
+
+.body_content_entire_module_add .module_add_msg{
+	text-align:justify;
+	border:solid 0px #009900;			
+	color: #F00;
+	font-size:11px;
+	font-weight:bold;
+	position:relative;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:10px;
+	margin-left:95px;
+}
+
+.module_manage_msg{
+	text-align:justify;
+	border:solid 0px #009900;			
+	color: #F00;
+	font-size:11px;
+	font-weight:bold;
+	position:relative;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:10px;
+	margin-left:250px;
+}
+
+/*tabledatadesign*/
+.salesdata thead {
+	background:url(images/table-data-title-bg.jpg) repeat-x left top;
+	height:21px;
+	line-height:21px;
+	color:#2b201d;
+	font-weight:bold;
+}
+.salesdata thead td{
+	border-right:1px solid #414141;
+	text-align:center;
+	color:#9E4852;
+	background-color:#F1F1F1;
+}
+.salesdata tbody {
+	height:21px;
+	line-height:21px;
+	color:#2b201d;
+	font-weight:normal;
+}
+.salesdata tbody td{
+	background:#d9e2ff;
+	border-right:1px solid #bec8e4;
+	text-align:center;
+}
+.salesdata td.tbody{
+	border-right:1px solid #bec8e4;
+	text-align:center;
+	background:#D2CDC7;
+}
+
+/*End tabledatadesign*/
+
+.form_input_select{
+	border: 1px solid #A6A6A6;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    padding: 3px;
+    /*width: 205px;*/
+}
+
+
+.pagediv{
+	margin: 10px;
+	overflow: auto;
+	border: 1px solid #D0D0D0;
+	-webkit-box-shadow: 0 0 8px #D0D0D0;
+	box-shadow: 0 0 8px #D0D0D0;
+	-moz-box-shadow: 0 0 8px #D0D0D0;
+}
+
+
+#logo_text{
+	margin: 0 15px 0 15px;
+	font: 36px Impact;
+}
+ul {
+	padding-left: 15px;
+}
+li {
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #DDD;
+}
+p.page_name{
+	font: 15px Impact;
+	padding: 12px;
+}
+.body_content{
+	width: 100%;
+	background-color:#FAF9FC;
+}
+.body_content_design{
+	margin: 0 auto;
+	width:100%;
+	padding: 0px;
+}
+.body_content_left{
+	padding: 20px;
+	width:18%;
+	float:left;
+	border-right:1px solid #CCCCCC;	
+}
+.body_content_entire{
+	padding: 20px;
+	width:75%;
+	float:right;
+}
+label{
+	width: 14em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+.box{
+	width: 300px;
+	padding: 7px;
+	margin: 0 0 10px 4.5em;
+}
+.button{
+	padding: 15px;
+	display:block;
+	margin-left: 18em;
+}
+.error{
+	color: RED;
+	padding: 10pd 0 10px 0;
+}

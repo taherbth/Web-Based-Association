@@ -1,0 +1,11 @@
+<?php
+             
+    if(isset($_SESSION['user_name'])){
+         include_once("./views/admin_home_view.php");
+    }
+    else{
+        header('Location:index.php?');
+    }
+   
+
+?>
