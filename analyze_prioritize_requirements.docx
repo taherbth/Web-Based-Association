@@ -1,11 +1,11 @@
-  
+﻿  
 After analyze and prioritize the requirements we came up with followings priority list for the project requirement:
 
 
-1. Organization-admin Registration.
-2. User logs in to the system.
-3. Organization-admin set authority to user-type.
-4. Member Registration.
+1. Organization-admin Registration.  Done
+2. User logs in to the system.  Done
+3. Organization-admin set authority to user-type. Done
+4. Member Registration. Done
 5. View organization presentation page.
 6. Member post article to main-board.
 7. View Main-board.
