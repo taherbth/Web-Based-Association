@@ -9,8 +9,10 @@ if(isset($_POST['login'])){
         $data['password'] = encrypt($data['password'],'whateveryouwant');           
         $login_response = verify_org_admin_login($data);
         if($login_response){
+                $_SESSION['organization_id']=$login_response;
                 $_SESSION['user_name']=$data['user_name'];
-                header('Location:index.php?controller=admin_home');
+                //header('Location:index.php?controller=admin_home');
+                
             }
         else{
                $_SESSION['user_name']="";

@@ -44,7 +44,7 @@
         }
         
         if($org_registration_response){
-            $data = send_registration_confirmation_email($data);
+            $data = send_org_registration_confirmation_email($data);
         }
         
    }

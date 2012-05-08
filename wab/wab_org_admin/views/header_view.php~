@@ -15,7 +15,7 @@
 			<div class="logo_header">
 				<!-- Start: logo is for header logo-->
 				<div class="logo">
-					<p id="logo_text"><?php echo $language['logo_text'];?>Web Association Board</p>
+					<p id="logo_text"><?php echo $language['logo_text'];?></p>
 				</div><!-- End: logo is for header logo-->
 			</div><!-- End: logo_header is for header logo-->
 			<!-- Start: login_form is for user login-->
@@ -30,5 +30,17 @@
           </div> <!-- End: languagebg-->
                 
 		</div><!-- End: headerdiv is for header section-->
-
-
+        <!-- Start: body_content-->
+		<div class="body_content">
+			<!-- Start: body_content_design-->
+			<div class="body_content_design">
+				<!-- Start: body_content_left-->
+				<div class="body_content_left">
+					<span style="font-size:14px; margin-bottom:30px; color:#4f5155; font-weight:bold;">
+				    <?php
+						if(isset($_SESSION['user_name'])){
+							echo $language['logged_in_message']."&nbsp;&nbsp;".date("Y-m-d");
+						}
+					?>
+					</span>
+					

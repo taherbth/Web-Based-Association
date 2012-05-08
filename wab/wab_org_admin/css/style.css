@@ -85,7 +85,7 @@ p.page_name{
 label{
 	width: 8em;
 	float: left;
-	text-align: right;
+	/*text-align: right;*/
 	margin-right: 0.5em;
 	display: block;
 }
@@ -95,7 +95,7 @@ label{
 	margin: 0 0 10px 4.5em;
 }
 .button{
-	padding: 15px;
+	padding: 5px;
 	display:block;
 	margin-left: 18em;
 }
@@ -155,4 +155,10 @@ label{
 
 .login_link{
 	margin-left:200px;
+}
+
+.member_info{
+		width:520px;
+		margin-right:50px;
+	    float:right;	
 }

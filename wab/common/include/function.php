@@ -59,9 +59,9 @@
     } 
     
 
-//Registration confirmation email...
+//Org Registration confirmation email...
 
-function send_registration_confirmation_email($data){
+function send_org_registration_confirmation_email($data){
     
     $emailfrom ="admin@logic-coder.com";
    
@@ -81,7 +81,7 @@ function send_registration_confirmation_email($data){
 	$message .="<p><b>Admin User :  </b>".$data['organization_admin_user']."</p>\n";
 	$message .="<p><b>Password : </b>".$data['login_password']."</p>\n";
     
-	$message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>Web Board Association.</span></td></tr></table>"."\n\n";
+	$message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>Web Association Board.</span></td></tr></table>"."\n\n";
 	$message .= "</body></html>\n";
 	
 	
@@ -111,6 +111,56 @@ function send_registration_confirmation_email($data){
     return $data;    
 }
 
+//Member Registration confirmation email...
+
+function send_member_registration_confirmation_email($data){
+    
+    $emailfrom ="admin@logic-coder.com";
+   
+    $subject="Registration Confirmation | Web Association Board"."\n\n";
+	
+	$message  = "<html><body>";
+    $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>Web Association Board.</span></td></tr></table>"."\n\n";
+	$message .= "<table cellpadding='0' cellspacing='0' width='660' style='margin:0 auto'><br/><br/>";
+	$message .= "<tr><td font-family: Arial,Helvetica,sans-serif; padding-top:18px; font-size:25px; color:rgb(102,102,102);><b>Registration Confirmation | Web Association Board.</b></td></tr></table>"."\n";
+	
+	$message .="<p>Dear ".$data['member_first_name'].",</p>"."\n";
+    $message .="<p>Congratulations!! You are successfully registered with the Organization (".$data['org_name'] .")</p>"."\n";
+	
+    $message .= "<p>Your login details :"."</p>\n";
+    $message .="<p><b>User :  </b>".$data['member_user_name']."</p>\n";
+	$message .="<p><b>Password : </b>".$data['login_password']."</p>\n";
+    
+	$message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>Web Association Board.</span></td></tr></table>"."\n\n";
+	$message .= "</body></html>\n";
+	
+	
+    $header  = "From: Web Association Board <".$emailfrom.">\r\n";
+    $header .= "Reply-To:".$emailfrom."\r\n";
+    $header .= "MIME-Version: 1.0\r\n";
+    $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+    $header .= "This is a multi-part message in MIME format.\r\n";
+    $header .= "--".$uid."\r\n";
+    $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
+    $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+    $header .= $message."\r\n\r\n";
+    $header .= "--".$uid."\r\n";
+    $header .= "Content-Transfer-Encoding: base64\r\n";
+  
+   echo $message;
+	if(mail($data['member_email'], $subject,"",$header))
+	 {   
+          $data=array();
+     	  $data['msg2']="Your registration successful !! A confirmation email sent to your email with your login information.";
+	 }
+	else
+	{
+		 $data['msg2']="";
+	}
+    
+    return $data;    
+}
+
 //Org_Login Form validation 
 function org_login_form_validation($data){
        $error=array();
@@ -122,5 +172,43 @@ function org_login_form_validation($data){
 		}
         return $error;
 }
+
+//Member_Registration Form validation 
+    function member_registration_form_validation($data,$lang_file){
+        include($lang_file);
+        $error=array();
+      		
+		if(empty($data['member_first_name'])){
+			$error['member_first_name_error']= $language['member_first_name_error_text'];
+		}
+		if(empty($data['member_last_name'])){
+			$error['member_last_name_error']= $language['member_last_name_error_text'];
+		}
+		if(empty($data['membership_expire_date'])){
+			$error['membership_expire_date_error']=$language['membership_expire_date_error_text'];
+		}
+		if(empty($data['member_email'])){
+			$error['member_email_error']= $language['member_email_error_text'];
+		}
+        if(empty($data['member_user_name'])){
+			$error['organization_admin_user_error']= $language['organization_admin_user_error_text'];
+		}
+        if(empty($data['member_pnr'])){
+			$error['member_pnr_error']=  $language['member_pnr_error_text'];
+		}  
+        if(empty($data['member_type_id'])){
+			$error['member_type_error']=  $language['member_type_error_text'];
+		}               
+        if(empty($data['member_address'])){
+			$error['member_address_error']= $language['member_address_error_text'];
+		}        
+		if($data['member_email']){
+            if (!preg_match("/^([a-zA-Z0-9])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)+/", $data['member_email']))
+            
+				$error['member_email_error']=$language['member_invalid_email_error_text'];
+		}
+        
+        return $error;
+    }
 
 ?>

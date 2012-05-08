@@ -3,16 +3,7 @@
 include_once("header_view.php");
  
  ?>
-
-		<!-- Start: body_content-->
-		<div class="body_content">
-			<!-- Start: body_content_design-->
-			<div class="body_content_design">
-				<!-- Start: body_content_left-->
-				<div class="body_content_left_module_add">
-						<?php //include_once("left_menu_nav_view.php"); ?>
-				</div><!-- End: body_content_left-->
-				
+				   </div><!-- End: body_content_left-->
 				<!-- Start: body_content_entire-->
 				<div class="body_content_entire_module_add">
                     <div class='module_add_msg'></div>		
