@@ -1,22 +1,22 @@
 ﻿  
 After analyze and prioritize the requirements we came up with followings priority list for the project requirement:
+1,5,9,11
 
-
-1. Organization-admin Registration.  Done
-2. User logs in to the system.  Done
-3. Organization-admin set authority to user-type. Done
-4. Member Registration. Done
-5. View organization presentation page.
-6. Member post article to main-board.
-7. View Main-board.
-8. Comment on posted article in main-board.
-9. Article posting notifications/whole article via email.
-10. Member send proposal for article to be posted in main-board.
-11. Admin approval of proposal for article to be posted in main-board.
-12. Display organization-admin profile.
-13. Update Organization-admin data.
-14. Display member-profile.
-15. Update Member Profile.
+1. Organization-admin Registration.  Done     3
+2. User logs in to the system.  Done       3
+3. Organization-admin set authority to user-type. Done       3
+4. Member Registration. Done     3
+5. View organization presentation page. Done    3
+6. Member post article to main-board. Done    3
+7. View Main-board. Done    3
+8. Comment on posted article in main-board. Done    6
+9. Article posting notifications/whole article via email. Done    3
+10. Member send proposal for article to be posted in main-board. Done    3
+11. Admin approval of proposal for article to be posted in main-board. Done    2
+12. Display organization-admin profile.Done    3
+13. Update Organization-admin data.Done    3
+14. Display member-profile.Done    3
+15. Update Member Profile.Done    3
 16. Change password.
 
 
