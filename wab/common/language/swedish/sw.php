@@ -36,6 +36,39 @@
     $language['username_exists']="User exists!!";
     $language['member_pnr_exists']="Pno exists!!";
     
+    $language['logged_in_message']="LogedIn as Admin";
+    $language['admin_menu_home']="Home";
+    $language['admin_menu_profile']="Profile";
+    $language['admin_menu_authority_settings']="Authority Settings";
+    $language['admin_menu_member_registration']="Member Registration";
+    $language['admin_menu_logout'] ="Log Out";
+    
+    
+    $language['member_type_text'] = "Member Type";
+    $language['member_ship_expire_date_text'] = "Membership Expire";
+    $language['member_registration_text'] = "Member Registration";
+    $language['membership_expire_date_error_text'] ="Expire date can not be empty!!";
+    $language['member_type_error_text'] = "Member type can not be empty!!";
+    $language['site_title_text'] = "Welcome to Web Association Board";
+    $language['site_title_admin_text'] = "Admin";
+    
+    $language['admin_menu_article_proposal']="Article Proposal";
+    $language['article_posted_by_text']="Posted By";
+    $language['article_expire_date_text']="Expire Date";
+    $language['article_importance_text']="Importance";
+    
+    $language['article_heading_text']="Heading";
+    $language['article_text']="Text";
+    
+    $language['organization_profile_text']= "Admin Profile";
+    
+    $language['admin_user_optional_address_text']="Optional Address";
+    $language['org_fax_text']="Fax";
+    $language['org_category_text'] = "Category";
+    $language['admin_user_user_type_text']="User Type";
+    $language['member_title_text']="Title";
+    $language['admin_user_phone_text']="Home Phone";
+    $language['admin_profile_update_text']="Profile Updated successfully!!";
     
      
 ?>

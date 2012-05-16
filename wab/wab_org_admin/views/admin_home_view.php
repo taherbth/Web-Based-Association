@@ -1,6 +1,7 @@
 <?php
 
 include_once("header_view.php");
+$article_proposal = get_proposal_article();
  
  ?>
   <?php include_once("left_menu_nav_view.php"); ?>

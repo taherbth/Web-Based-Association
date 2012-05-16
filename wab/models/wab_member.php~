@@ -1,0 +1,275 @@
+<?php
+//Data exists or not
+
+    function  is_exists($lang_file,$table_name,$field_name,$value,$field_not_chk,$field_not_chk_id){
+        include($lang_file);
+        $query = "SELECT * from $table_name WHERE $field_name='$value'";
+        if($field_not_chk){
+           $query.=" AND $field_not_chk!='$field_not_chk_id'";
+       }
+        $result = mysql_query($query);
+        if(@mysql_num_rows($result)>=1){
+            if($field_name=="organization_number"){
+                $error['organization_number_error']= $language['organization_number_exists'];
+            }
+            elseif($field_name=="organization_name"){
+                $error['organization_name_error']= $language['organization_name_exists'];
+            }
+            elseif($field_name=="member_email"){
+                $error['member_email_error']= $language['member_email_exists'];
+            }
+            elseif($field_name=="member_user_name"||$field_name=="organization_admin_user"){
+               echo $error['organization_admin_user_error']= $language['username_exists'];
+            }
+            elseif($field_name=="member_pnr"){
+                $error['member_pnr_error']= $language['member_pnr_exists'];
+            }            
+            elseif($field_name=="article_title"){
+                $error['article_title_error']= $language['article_title_exists'];
+            }
+            
+            return $error;
+        }
+    }
+    
+//Member Login Verification
+function verify_member_login($data){
+    $sql_login = "SELECT * FROM member_tbl WHERE (member_email='".$data['user_name']."' OR member_pnr='".$data['user_name']."' OR member_user_name='".$data['user_name']."') AND member_login_password='".$data['password']."'";
+    $result = mysql_query($sql_login);
+    if(mysql_num_rows($result)>=1){
+        $row = mysql_fetch_assoc($result);
+        $data['member_id']=$row['member_id'];
+        $data['organization_id']=$row['organization_id'];
+        return $data;
+    }
+    else{return FALSE;}
+}
+
+//Get all member type
+function get_membertype(){
+    $sql_member_type = "SELECT * FROM member_type_tbl";
+    $result = mysql_query($sql_member_type);
+    return $result;
+  
+}
+
+
+// Get all function_access data for particular user_type and organization
+function get_all_module_function_access($org_id,$member_type_id){
+    $sql_function_access = "SELECT * FROM module_function_access_tbl mfac, module_function_name_tbl mf WHERE (mfac.organization_id='".$org_id."' AND mfac.member_type_id='".$member_type_id."') AND (mfac.module_function_id=mf.module_function_id)";
+    $result =  mysql_query($sql_function_access);
+    return  $result; 
+}
+
+//Get User type name by id
+function get_user_type_name_by_id($member_type_id){
+    $sql_member_type = "SELECT member_type_name FROM member_type_tbl WHERE member_type_id='".$member_type_id."'";
+    $result =  mysql_query($sql_member_type);
+     if(mysql_num_rows($result)>0){
+        $row = mysql_fetch_assoc($result);
+        return $row['member_type_name'];
+    }
+}
+ 
+//Get org name by org id
+function get_organization_name_by_id($org_id){
+    $sql_organization = "SELECT * FROM organization_tbl WHERE organization_id='".$org_id."'";
+    $result =  mysql_query($sql_organization);
+     if(mysql_num_rows($result)>0){
+        $row = mysql_fetch_assoc($result);
+        return $row['organization_name'];
+    }
+}
+
+// Get Member Type Authority
+function get_member_type_authority($member_id){
+    $sql_member_type_authority = "SELECT * FROM module_function_access_tbl mfac, member_tbl m 
+                                                         WHERE (mfac.organization_id=m.organization_id AND 
+                                                         mfac.member_type_id=m.member_type_id AND mfac.module_function_access=1) AND 
+                                                         m.member_id='".$member_id."'";
+    $result =  mysql_query($sql_member_type_authority);
+    return $result;   
+
+}
+
+// Get Organization data by organization_id
+function get_organization_data_by_member_id($member_id){
+    $sql_org_data = "SELECT * FROM organization_tbl org, member_tbl m 
+                                 WHERE org.organization_id=m.organization_id AND m.member_id='".$member_id."'";
+    $result =  mysql_query($sql_org_data);
+    return $result; 
+}
+
+// Get org category name by category_id
+function get_org_category_name_by_cat_id($organization_category_id){
+    $sql_org_category_data = "SELECT * FROM organization_category_tbl WHERE organization_category_id='".$organization_category_id."'";
+    $result =  mysql_query($sql_org_category_data);
+    if(mysql_num_rows($result)>0){
+        $row = mysql_fetch_array($result);
+        return $row['organization_category_name']; 
+    }
+}
+
+//Get article category 
+function get_article_category(){
+    $sql_article_category = "SELECT * FROM article_category_tbl";
+    $result =  mysql_query($sql_article_category);
+    if(mysql_num_rows($result)>0){
+         return $result; 
+    }
+}
+
+// Insert article posting data
+function insert_article_posting_data($data){
+
+    $add_date = date('Y-m-d: H:i:s');
+    
+    $insert_sql_article = "INSERT INTO article_tbl
+            SET     article_category_id = '".$data['article_category_id']."',
+            member_id = '".$data['member_id']."',
+            organization_id = '".$data['organization_id']."',
+            article_title = '".$data['article_title']."',
+            article_headings = '".$data['article_headings']."',
+            article_text = '".$data['article_text']."',
+            proposal_approved = '".$data['proposal_approved']."',
+            article_add_date = '".$data['article_add_date']."',
+            article_expire_date = '".$data['article_expire_date']."',
+            article_importance = '".$data['article_importance']."',
+            add_date = '$add_date'";
+    mysql_query($insert_sql_article);
+    
+    if(mysql_insert_id()>0){
+    return mysql_insert_id();
+    }
+    else{
+    return FALSE;
+    }                                                   
+
+}
+
+//Get Main Board Article
+function get_main_board_article($organization_id,$article_id){
+
+$today_date = mktime(0,0,0,date('m'),date('d'),date('Y'));
+$sql_article = "SELECT * FROM `article_tbl` art, article_category_tbl artc,member_tbl mem
+WHERE (art.article_category_id = artc.article_category_id AND art.member_id=mem.member_id) AND (art.proposal_approved=1 AND  art.proposal_denied=0 AND art.article_expire_date>='".$today_date."')";
+if(!empty($article_id)){
+    $sql_article.=" AND art.article_id='".$article_id."'";
+}
+
+    $sql_article.=" ORDER BY artc.article_category_id ASC , art.article_importance DESC";
+
+$result = mysql_query($sql_article);
+return $result;
+}
+
+//Get article category name by category_id
+function get_article_category_name_by_id($article_category_id){
+    $sql_article_category = "SELECT article_category_name FROM article_category_tbl WHERE article_category_id='".$article_category_id."'";
+    $result =  mysql_query($sql_article_category);
+    
+    if(mysql_num_rows($result)>0){
+         $rows = mysql_fetch_array($result);
+         return $rows['article_category_name']; 
+    }
+}
+
+//insert article comment data
+function insert_article_comment_data($data,$row_article){
+    $add_date = date('Y-m-d: H:i:s');
+    
+    $insert_sql_article_comment = "INSERT INTO comment_on_article_tbl
+            SET     organization_id = '".$row_article['organization_id']."',
+            article_id = '".$row_article['article_id']."',
+            comment_on_member_id= '".$row_article['member_id']."',
+            comment_member_id= '".$data['member_id']."',
+            comment= '".$data['article_comment']."',
+            add_date = '$add_date'";
+    mysql_query($insert_sql_article_comment);
+
+    if(mysql_insert_id()>0){
+    return TRUE;
+    }
+    else{
+    return FALSE;
+    }    
+}
+
+//Get Article Comment
+function get_article_comment($organization_id,$article_id){
+
+$sql_article_comment = "SELECT * FROM comment_on_article_tbl art_comm, article_tbl art, member_tbl mem
+                                         WHERE (art_comm.article_id=art.article_id AND art_comm.organization_id=art.organization_id) 
+                                         AND (art_comm.comment_on_member_id=art.member_id AND mem.member_id=art_comm.comment_member_id) 
+                                         AND art_comm.article_id='".$article_id."'";
+                                         
+    $result =  mysql_query($sql_article_comment);
+    return $result; 
+                                         
+
+$result = mysql_query($sql_article);
+return $result;
+}
+
+//Get member name by member_id
+function get_member_name_by_member_id($comment_member_id){
+    $sql_member = "SELECT * FROM member_tbl WHERE member_id='".$comment_member_id."'";
+    $result =  mysql_query($sql_member);
+    
+    if(mysql_num_rows($result)>0){       
+         $rows = mysql_fetch_array($result);
+         return $rows['member_first_name']." ".$rows['member_last_name']; 
+    }
+}
+
+//Get all member by org id
+function get_all_member_by_org_id($organization_id){
+    $sql_member = "SELECT * FROM member_tbl WHERE organization_id='".$organization_id."'";
+    $result =  mysql_query($sql_member);
+    return $result;
+}
+//Update article_tbl
+function update_article_tbl($article_id,$article_posting_notification){
+    if($article_posting_notification=="only_notification"){
+        $field_name="article_posting_notification_via_email";
+    }
+     if($article_posting_notification=="whole_article"){
+        $field_name="send_whole_article_via_email";
+    }
+    echo $update_sql="UPDATE article_tbl SET " .$field_name."=1 WHERE article_id='".$article_id."'" ;
+    $result =  mysql_query($update_sql);
+    return TRUE;
+    
+}
+
+//Get memebr data
+function get_member_info($member_id,$organization_id){
+    $sql_member_info = "SELECT * FROM member_tbl mem, member_type_tbl mem_type 
+                                        WHERE (mem.member_id='".$member_id."' AND mem.organization_id='".$organization_id."') AND mem.member_type_id=mem_type.member_type_id";
+    $result =  mysql_query($sql_member_info);
+    return $result;
+}
+
+
+// Update member profile data
+function update_member_profile_data($data){
+                                
+$update_sql_member = "UPDATE member_tbl
+        SET   member_title = '".$data['member_title']."',
+        member_pnr = '".$data['member_pnr']."',
+        member_first_name = '".$data['member_first_name']."',
+        member_last_name = '".$data['member_last_name']."',
+        member_user_name = '".$data['member_user_name']."',
+        member_email = '".$data['member_email']."',
+        member_cell_phone = '".$data['member_cell_phone']."',
+        member_home_phone = '".$data['member_home_phone']."',
+        member_address = '".$data['member_address']."'
+        WHERE member_id= '".$data['member_id']."'";
+        mysql_query($update_sql_member);
+
+return TRUE;
+                                                                                                                             
+                                                  
+    }
+?>
+

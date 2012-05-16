@@ -1,0 +1,62 @@
+<?php
+
+include_once("header_view.php");
+ 
+ ?>
+  <?php include_once("left_menu_nav_view.php"); ?>
+				   </div><!-- End: body_content_left-->
+		<!-- Start: body_content_entire-->
+				<div class="body_content_entire">
+                    <div id="loginbox">
+		<div id="login-box-top"></div>
+		<div id="login-box-body">
+        
+        <?php if(isset($_SESSION['member_name']) && !empty($_SESSION['member_name'])){ ?> 
+			<div id="error">
+				<?php if(isset($_SESSION['login_success_message'])){ echo $language['login_welcome_message_text']." ".$_SESSION['member_name']." ".$_SESSION['login_success_message']; unset($_SESSION['login_success_message']);}?>
+			</div>
+       <?php } else { ?>
+            
+		  	<h1 style="text-align:center;"><?php echo $language['member_login_text'];?></h1>
+			<div class="userbox">
+            <div style="color:red; margin:10px 0px 0px 112px;clear:both">
+            <?php
+            if(sizeof($error_response)<=0){
+                if(isset($_SESSION['user_name']) && empty($_SESSION['user_name'])){ ?> <?php echo "Bad username or password!!";}
+               else if(isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])){ ?> <?php echo "Login Success!!";}}?>
+                </div>
+                <form name="login" id="login" method="post" action="" enctype="multipart/form-data">
+
+				<div class="itembox">
+					<label for="name" class="login-uname">User Name:</label>
+					<label><input name="username" type="text" id="name" class="login-inpuiitem" value=""/></label>
+                </div><div style="color:red; margin-left:112px;clear:both"><?php if(isset($error_response['user_name_error'])){echo $error_response['user_name_error'];}?></div>
+                    <br />
+				<div class="itembox">
+					<label for="pword" class="login-uname">Password:</label>
+					<label><input name="password" type="password" id="pword" class="login-inpuiitem" value=""/></label>
+                </div>
+                <div style="color:red; margin-left:112px;clear:both"><?php if(isset($error_response['user_password_error'])){echo $error_response['user_password_error'];}?></div>       
+<br />
+				<div class="itembox top10" style="float:left;padding-top:0px;">
+					<label for="sumbit" style="margin-left:113px; width:4em;"><input name="login" type="submit" value="Login" id="login" class="submit-btn" /></label>
+				</div>
+                <div class="itembox forgate-box top10" style="float:left;padding-top:0px;"><a href="#forgot_pass.php">Forgot your password?</a>  </div>
+				</form>
+                  	
+					<div class="itembox forgate-box"></div>
+				<div class="clear">&nbsp;</div>
+
+			</div>
+		</div>
+		
+	</div>
+	<?php }?>
+                </div><!-- End: body_content_entire-->
+
+			</div><!-- End: body_content_design-->
+		</div><!-- End: body_content-->
+
+
+	
+<?php include_once("footer_view.php"); ?>

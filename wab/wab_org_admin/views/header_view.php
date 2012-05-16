@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Welcome to Web Association Board</title>
+<title><?php echo $language['site_title_text']."|".$language['site_title_admin_text'];?></title>
 	<link href="./css/style.css" rel="stylesheet" type="text/css" />
     
     <!-- For Calender Start Here -->
@@ -325,7 +325,7 @@ function ds_onclick(d, m, y) {
 			<div class="logo_header">
 				<!-- Start: logo is for header logo-->
 				<div class="logo">
-					<p id="logo_text"><?php echo $language['logo_text'];?></p>
+					<p id="logo_text"><?php echo $language['logo_text'] . "|".$language['site_title_admin_text'];?></p>
 				</div><!-- End: logo is for header logo-->
 			</div><!-- End: logo_header is for header logo-->
 			<!-- Start: login_form is for user login-->

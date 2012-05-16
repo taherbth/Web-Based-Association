@@ -13,8 +13,7 @@ include_once("header_view.php");
                     <div class="success_message"><?php if(isset($data['msg2'])){echo $data['msg2'];}?></div>
                         <form name="registration" id="registration" method="post" action="" enctype="multipart/form-data">
                             
-                            <div class="member_info">
-                                
+                            <div class="member_info" style=" float: left;margin-left: 235px;">
                                     <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_first_name_text'];?>: </label></div>
                                     <div class="input_field_div"><input type="text" name="member_first_name" id="member_first_name" value="<?php echo $data['member_first_name'];?>"/></div>
                                     <div class="error_msg"><?php if(isset($error_response['member_first_name_error'])){echo $error_response['member_first_name_error'];}?></div>

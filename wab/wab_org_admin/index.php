@@ -1,6 +1,6 @@
 <?php
 
-// -40399259 Test
+// 890924833 Test
 // -305112754  admin
 //890924833 emdad----userend
 //462529496 nazmul----userend
@@ -11,6 +11,12 @@ include_once('models/wab_org_admin.php');
 $controller = $_REQUEST['controller'];
 if(isset($_SESSION['user_name'])){
     $controller = $_REQUEST['controller'];
+    $article_proposal = get_proposal_article();
+}
+
+
+elseif(empty($_SESSION['user_name']) && $controller!="registration"){
+    $controller = "";
 }
 
 if(empty($controller) && (isset($_SESSION['user_name']) && !empty($_SESSION['user_name']))){
@@ -20,8 +26,7 @@ if(empty($controller) && (isset($_SESSION['user_name']) && !empty($_SESSION['use
 
 
 if(empty($controller))
-    $controller='index';
-    
+    $controller='index';    
 include_once('controllers/'.$controller."_controller.php");
 
 

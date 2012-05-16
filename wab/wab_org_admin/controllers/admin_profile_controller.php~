@@ -1,0 +1,73 @@
+<?php
+             
+  
+  if(isset($_POST['update'])){
+        $data['member_id']                           = $_POST['member_id'];
+        $data['organization_id']                     = $_POST['organization_id'];
+        $data['member_title']                        =$_POST['member_title'];
+        $data['organization_number']            =$_POST['organization_number'];
+        $data['organization_name']                =$_POST['organization_name'];
+        $data['primary_address']                    =$_POST['primary_address'];
+        $data['optional_address']                    =$_POST['optional_address'];
+        $data['organization_phone']                = $_POST['organization_phone'];
+        $data['organization_fax']                    = $_POST['organization_fax'];
+        $data['member_first_name']               = $_POST['member_first_name'];
+        $data['member_last_name']                = $_POST['member_last_name'];
+        $data['member_cell_phone']               =$_POST['member_cell_phone'];
+        $data['member_home_phone']             =$_POST['member_home_phone'];
+        $data['member_email']                       =$_POST['member_email'];
+        $data['organization_admin_user']       =$_POST['organization_admin_user'];
+        $data['member_pnr']                          =$_POST['member_pnr'];
+        $data['member_address']                   = $_POST['member_address'];
+        
+        
+        $error_response                                 = org_registration_form_validation($data,$lang_file);
+        
+        $org_registration_response=array();
+                        
+        if(sizeof($error_response)<=0){
+            $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_number",$value=$data['organization_number'],$field_not_chk="organization_id",$data['organization_id']);
+            if(sizeof($error_response)<=0){
+                $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_name",$value=$data['organization_name'],$field_not_chk="organization_id",$data['organization_id']);
+            }
+            if(sizeof($error_response)<=0){
+                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_email",$value=$data['member_email'],$field_not_chk="member_id",$data['organization_id']);
+            }
+            if(sizeof($error_response)<=0){
+                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_user_name",$value=$data['organization_admin_user'],$field_not_chk="member_id",$data['organization_id']);
+            }
+            if(sizeof($error_response)<=0){
+                $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_admin_user",$value=$data['organization_admin_user'],$field_not_chk="organization_id",$data['organization_id']);
+            }
+             if(sizeof($error_response)<=0){
+                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_pnr",$value=$data['member_pnr'],$field_not_chk="member_id",$data['organization_id']);
+            }
+            if(sizeof($error_response)<=0){
+                $org_profile_update_response = update_organization_profile_data($data);
+                if($org_profile_update_response){
+                    $data_update['mgs2']=$language['admin_profile_update_text'];
+                }
+               $org_id = $_REQUEST['organization_id'];       
+               $organization_data = get_org_admin_info($org_id);           
+               include("./views/admin_profile_update_view.php");     
+               exit;
+            }
+        }
+ }
+   if(isset($_REQUEST['update_id'])){
+           $org_id = $_REQUEST['update_id'];       
+           $organization_data = get_org_admin_info($org_id);           
+           include("./views/admin_profile_update_view.php");     
+           exit;
+   }
+   
+       if(isset($_SESSION['organization_id'])){
+           $org_id = $_SESSION['organization_id'];   
+           $organization_data = get_org_admin_info($org_id);
+           include("./views/admin_profile_view.php");
+    }
+    else{
+        header('Location:index.php?');
+    }
+  
+?>

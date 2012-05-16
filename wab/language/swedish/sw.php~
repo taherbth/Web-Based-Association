@@ -1,0 +1,21 @@
+<?php
+	$language['logo_text']="Web Association Board";
+    $language['registration_text']="Registration";
+    $language['organization_info_text']="Organization Info";
+    $language['org_no_text']="Org No";
+    $language['org_name_text']="Org Name";
+    $language['org_primary_address_text']="Primary Address";
+    $language['org_optional_address_text']="Optional Address";
+    $language['org_phone_text']="Org Phone";
+    $language['admin_user_info_text']="Admin User Info";
+    $language['admin_user_first_name_text']="First Name";
+    $language['admin_user_last_name_text']="Last Name";
+    $language['admin_user_mobile_text']="Mobile";
+    $language['admin_user_email_text']="Email";
+    $language['admin_user_username_name_text']="User Name";
+    $language['admin_user_pno_text']="Person No";
+    $language['admin_user_address_text']="Address";
+    $language['register_btn_text']="Registration";
+	$language['invalid_email']="Please enter a valid email address!!";	
+	
+?>

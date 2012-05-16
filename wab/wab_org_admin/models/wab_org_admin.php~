@@ -74,9 +74,14 @@ function insert_member_registration_data($data){
 
 //Data exists or not
 
-    function  is_exists($lang_file,$table_name,$field_name,$value){
+    function  is_exists($lang_file,$table_name,$field_name,$value,$field_not_chk,$field_not_chk_id){
         include($lang_file);
         $query = "SELECT * from $table_name WHERE $field_name='$value'";
+       
+       if($field_not_chk){
+           $query.=" AND $field_not_chk!='$field_not_chk_id'";
+       }
+        
         $result = mysql_query($query);
         if(mysql_num_rows($result)>=1){
             if($field_name=="organization_number"){
@@ -108,7 +113,7 @@ function verify_org_admin_login($data){
            return $row['organization_id'];
         }
         else{
-                $sql_login = "SELECT * FROM member_tbl WHERE user_type='Administrator' AND (member_email='".$data['user_name']."' OR member_pnr='".$data['user_name']."') AND member_login_password='".$data['password']."'";
+                $sql_login = "SELECT * FROM member_tbl WHERE user_type='Administrator' AND (member_email='".$data['user_name']."' OR member_pnr='".$data['user_name']."' OR member_user_name='".$data['user_name']."') AND member_login_password='".$data['password']."'";
                 $result = mysql_query($sql_login);
                  if(mysql_num_rows($result)>=1){
                      $row = mysql_fetch_assoc($result);
@@ -204,9 +209,92 @@ function get_organization_name_by_id($org_id){
     $result =  mysql_query($sql_organization);
      if(mysql_num_rows($result)>0){
         $row = mysql_fetch_assoc($result);
-        return $row['member_type_name'];
+        return $row['organization_name'];
     }
 }
 
+
+//Get Proposal Article
+function get_proposal_article(){
+
+$today_date = mktime(0,0,0,date('m'),date('d'),date('Y'));
+$sql_article = "SELECT * FROM `article_tbl` art, article_category_tbl artc,member_tbl mem,organization_tbl org
+WHERE (art.article_category_id = artc.article_category_id AND art.member_id=mem.member_id AND org.organization_id=art.organization_id) AND (art.proposal_approved=0 AND  art.proposal_denied=0 AND art.article_expire_date>='".$today_date."')";
+$sql_article.=" ORDER BY org.organization_id ASC";
+$result = mysql_query($sql_article);
+return $result;
+}
+
+//Get article category name by category_id
+function get_article_category_name_by_id($article_category_id){
+    $sql_article_category = "SELECT article_category_name FROM article_category_tbl WHERE article_category_id='".$article_category_id."'";
+    $result =  mysql_query($sql_article_category);
+    
+    if(mysql_num_rows($result)>0){
+         $rows = mysql_fetch_array($result);
+         return $rows['article_category_name']; 
+    }
+}
+
+//Update article_tbl
+function update_article_tbl($article_id,$field_name,$value){
+    $update_sql="UPDATE article_tbl SET " .$field_name."='".$value."' WHERE article_id='".$article_id."'" ;
+    $result =  mysql_query($update_sql);
+    return TRUE;
+    
+}
+
+//Get organization admin profile info
+function get_org_admin_info($org_id){
+    $sql_org_info = "SELECT * FROM organization_tbl org, member_tbl mem 
+                               WHERE (mem.organization_id='".$org_id."' AND mem.member_id='".$org_id."' AND mem.user_type='Administrator') AND org.organization_id='".$org_id."'";
+    $result =  mysql_query($sql_org_info);
+    return $result;     
+}
+
+// Get org category name by category_id
+function get_org_category_name_by_cat_id($organization_category_id){
+    $sql_org_category_data = "SELECT * FROM organization_category_tbl WHERE organization_category_id='".$organization_category_id."'";
+    $result =  mysql_query($sql_org_category_data);
+    if(mysql_num_rows($result)>0){
+        $row = mysql_fetch_array($result);
+        return $row['organization_category_name']; 
+    }
+}
+
+// Update organization profile data
+function update_organization_profile_data($data){
+        
+        
+        $update_sql_org = "UPDATE organization_tbl
+                                        SET      organization_number = ".$data['organization_number'].",
+                                                    organization_name = '".$data['organization_name']."',
+                                                    primary_address = '".$data['primary_address']."',
+                                                    optional_address = '".$data['optional_address']."',
+                                                    organization_phone = '".$data['organization_phone']."',
+                                                    organization_fax = '".$data['organization_fax']."',
+                                                    organization_admin_user = '".$data['organization_admin_user']."'                                                    
+                                                    WHERE organization_id= '".$data['organization_id']."'";
+                                                    mysql_query($update_sql_org);
+                                                    
+                                                                                                             
+                                                    $update_sql_member = "UPDATE member_tbl
+                                                                                    SET   member_title = '".$data['member_title']."',
+                                                                                    member_pnr = '".$data['member_pnr']."',
+                                                                                    member_first_name = '".$data['member_first_name']."',
+                                                                                    member_last_name = '".$data['member_last_name']."',
+                                                                                    member_user_name = '".$data['organization_admin_user']."',
+                                                                                    member_login_password = '".$data['organization_admin_password']."',
+                                                                                    member_email = '".$data['member_email']."',
+                                                                                    member_cell_phone = '".$data['member_cell_phone']."',
+                                                                                    member_home_phone = '".$data['member_home_phone']."',
+                                                                                    member_address = '".$data['member_address']."'
+                                                                                    WHERE member_id= '".$data['member_id']."'";
+                                                                                    mysql_query($update_sql_member);
+
+return TRUE;
+                                                                                                                             
+                                                  
+    }
 ?>
 

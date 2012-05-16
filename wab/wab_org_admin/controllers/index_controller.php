@@ -11,8 +11,8 @@ if(isset($_POST['login'])){
         if($login_response){
                 $_SESSION['organization_id']=$login_response;
                 $_SESSION['user_name']=$data['user_name'];
-                //header('Location:index.php?controller=admin_home');
-                
+                include_once("./views/admin_home_view.php");
+                exit;                
             }
         else{
                $_SESSION['user_name']="";

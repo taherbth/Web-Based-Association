@@ -1,0 +1,102 @@
+<?php
+
+include_once("header_view.php");
+ if(mysql_num_rows($organization_data)>0){
+       $data = mysql_fetch_array($organization_data);
+}
+ 
+ ?>
+ <?php include_once("left_menu_nav_view.php"); ?>
+				   </div><!-- End: body_content_left-->
+				<!-- Start: body_content_entire-->
+				<div class="body_content_entire_module_add">
+                    <div class='module_add_msg'></div>		
+                    <div class="registration_form">
+                    <h3 style="text-align:center;"> <?php echo $language['organization_profile_text'];?></h3>
+                    <div class="success_message"><?php if(isset($data_update['mgs2'])){echo $data_update['mgs2'];}?></div>
+                        <form name="registration" id="registration" method="post" action="" enctype="multipart/form-data">
+                            <div class="org_info" style="width:375px;">
+                                <fieldset>
+                                    <legend><?php echo $language['organization_info_text'];?></legend>
+                                    <div class="label_div"><label for="Org_info" class="label"><?php echo $language['org_no_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="organization_number" id="organization_number" value="<?php echo $data['organization_number'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['organization_number_error'])){echo $error_response['organization_number_error'];}?></div>
+					
+                                    <div class="label_div"><label for="Org_info" class="label"><?php echo $language['org_name_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="organization_name" id="organization_name" value="<?php echo $data['organization_name'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['organization_name_error'])){echo $error_response['organization_name_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="Org_info" class="label"><?php echo $language['org_primary_address_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="primary_address" id="primary_address" value="<?php echo $data['primary_address'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['primary_address_error'])){echo $error_response['primary_address_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="Org_info" class="label"><?php echo $language['org_optional_address_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="optional_address" id="optional_address" value="<?php echo $data['optional_address'];?>"/></div>
+                                    <div class="error_msg"></div>
+
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['org_phone_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="organization_phone" id="organization_phone" value="<?php echo $data['organization_phone'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['organization_phone_error'])){echo $error_response['organization_phone_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['org_fax_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="organization_fax" id="organization_fax" value="<?php echo $data['organization_fax'];?>"/></div>
+                                    <div class="error_msg"></div>  
+                               
+                               </fieldset>
+                            </div>
+                            <div class="admin_user_info" style="width:400px;">
+                                <fieldset>
+                                    <legend><?php echo $language['admin_user_info_text'];?></legend>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['member_title_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_title" id="member_title" value="<?php echo $data['member_title'];?>"/></div>
+                                    <div class="error_msg"></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_first_name_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_first_name" id="member_first_name" value="<?php echo $data['member_first_name'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['member_first_name_error'])){echo $error_response['member_first_name_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_last_name_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_last_name" id="member_last_name" value="<?php echo $data['member_last_name'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['member_last_name_error'])){echo $error_response['member_last_name_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_mobile_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_cell_phone" id="member_cell_phone" value="<?php echo $data['member_cell_phone'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['member_cell_phone_error'])){echo $error_response['member_cell_phone_error'];}?></div>
+                                    
+                                      <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_phone_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_home_phone" id="member_home_phone" value="<?php echo $data['member_home_phone'];?>"/></div>
+                                    <div class="error_msg"></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_email_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_email" id="member_email" value="<?php echo $data['member_email'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['member_email_error'])){echo $error_response['member_email_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_username_name_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="organization_admin_user" id="organization_admin_user" value="<?php echo $data['organization_admin_user'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['organization_admin_user_error'])){echo $error_response['organization_admin_user_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_pno_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_pnr" id="member_pnr" value="<?php echo $data['member_pnr'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['member_pnr_error'])){echo $error_response['member_pnr_error'];}?></div>
+                                    
+                                    <div class="label_div"><label for="admin_info" class="label"><?php echo $language['admin_user_address_text'];?>: </label></div>
+                                    <div class="input_field_div"><input type="text" name="member_address" id="member_address" value="<?php echo $data['member_address'];?>"/></div>
+                                    <div class="error_msg"><?php if(isset($error_response['member_address_error'])){echo $error_response['member_address_error'];}?></div>
+                                </fieldset>
+                            </div>
+                            </div>
+                            <div class="submit_btn" style="margin-left:533px;"> <input type="hidden" name="organization_id" value="<?php echo $data['organization_id'];?>"/>
+                            <div> <input type="hidden" name="member_id" value="<?php echo $data['member_id'];?>"/>
+                            <div class="submit_btn" style="margin-left:0px;"> <input type="submit" name="update" value="Update"/> </div>
+
+                            
+                        </form>
+                    </div>
+					
+                    </div><!-- End: body_content_entire-->
+
+			</div><!-- End: body_content_design-->
+		</div><!-- End: body_content-->
+
+<?php include_once("footer_view.php"); ?>
