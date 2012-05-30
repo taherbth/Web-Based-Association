@@ -236,7 +236,7 @@ function update_article_tbl($article_id,$article_posting_notification){
      if($article_posting_notification=="whole_article"){
         $field_name="send_whole_article_via_email";
     }
-    echo $update_sql="UPDATE article_tbl SET " .$field_name."=1 WHERE article_id='".$article_id."'" ;
+    $update_sql="UPDATE article_tbl SET " .$field_name."=1 WHERE article_id='".$article_id."'" ;
     $result =  mysql_query($update_sql);
     return TRUE;
     
@@ -269,5 +269,15 @@ $update_sql_member = "UPDATE member_tbl
 return TRUE;                                                                                                                            
                                                   
     }
+    
+// Change password
+function update_member_password($data){
+    $sql = "UPDATE member_tbl SET member_login_password ='".$data['new_pass']."' where member_id='".$data['member_id']."' AND organization_id='".$data['organization_id']."'";
+    $query = mysql_query($sql) or die(mysql_error());
+    if($query){        
+        return TRUE;
+    }
+
+}
 ?>
 

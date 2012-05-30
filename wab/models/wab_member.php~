@@ -236,7 +236,7 @@ function update_article_tbl($article_id,$article_posting_notification){
      if($article_posting_notification=="whole_article"){
         $field_name="send_whole_article_via_email";
     }
-    echo $update_sql="UPDATE article_tbl SET " .$field_name."=1 WHERE article_id='".$article_id."'" ;
+    $update_sql="UPDATE article_tbl SET " .$field_name."=1 WHERE article_id='".$article_id."'" ;
     $result =  mysql_query($update_sql);
     return TRUE;
     
@@ -244,7 +244,7 @@ function update_article_tbl($article_id,$article_posting_notification){
 
 //Get memebr data
 function get_member_info($member_id,$organization_id){
-    $sql_member_info = "SELECT * FROM member_tbl mem, member_type_tbl mem_type 
+    echo $sql_member_info = "SELECT * FROM member_tbl mem, member_type_tbl mem_type 
                                         WHERE (mem.member_id='".$member_id."' AND mem.organization_id='".$organization_id."') AND mem.member_type_id=mem_type.member_type_id";
     $result =  mysql_query($sql_member_info);
     return $result;
@@ -266,10 +266,18 @@ $update_sql_member = "UPDATE member_tbl
         member_address = '".$data['member_address']."'
         WHERE member_id= '".$data['member_id']."'";
         mysql_query($update_sql_member);
-
-return TRUE;
-                                                                                                                             
+return TRUE;                                                                                                                            
                                                   
     }
+    
+// Change password
+function update_member_password($data){
+    $sql = "UPDATE member_tbl SET member_login_password ='".$data['new_pass']."' where member_id='".$data['member_id']."' AND organization_id='".$data['organization_id']."'";
+    $query = mysql_query($sql) or die(mysql_error());
+    if($query){        
+        return TRUE;
+    }
+
+}
 ?>
 

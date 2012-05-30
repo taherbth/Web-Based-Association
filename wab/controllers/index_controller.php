@@ -14,11 +14,13 @@ if(isset($_POST['login'])){
                 $_SESSION['member_name']=$data['user_name'];
                 $_SESSION['login_success_message']=$language['login_success_message_text'] ;
                 $member_type_authority = get_member_type_authority($_SESSION['member_id']);
+                
+                
                 //header('Location:index.php?controller=admin_home');
                 
             }
         else{
-               $_SESSION['member_name']="";
+               $_SESSION['user_error']=$language['user_login_error'];
         }
     }
 }

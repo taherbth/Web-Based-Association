@@ -69,12 +69,12 @@
     $language['member_title_text']="Title";
     $language['admin_user_phone_text']="Home Phone";
     $language['admin_profile_update_text']="Profile Updated successfully!!";
+    $language['admin_login_error']="Bad username or password";    
     
-    
-    
-    
-    
-    
-    
+    $language['user_password'] ="Change password";
+    $language['old_pass_text'] = "Old password";
+    $language['new_pass_text'] = "New password";
+    $language['confirm_pass_text'] = "Confirm password";
+    $language['change_pass_text'] ="Confirm";
      
 ?>

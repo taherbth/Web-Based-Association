@@ -69,12 +69,6 @@
     $language['member_title_text']="Title";
     $language['admin_user_phone_text']="Home Phone";
     $language['admin_profile_update_text']="Profile Updated successfully!!";
-    
-    
-    
-    
-    
-    
-    
+    $language['admin_login_error']="Bad username or password";    
      
 ?>

@@ -16,7 +16,7 @@
         $create_article                                       = $_POST['create_article'];
         $data['article_add_date']                       = $_POST['article_add_date'];
         $data['article_expire_date']                   = $_POST['article_expire_date'];   
-        $data['article_posting_notification']       = $_POST['article_posting_notification'];   
+        $data['article_posting_notification']       = $_POST['article_posting_notification'];
                         
         $error_response                                    = article_post_form_validation($data,$lang_file);
         
@@ -25,7 +25,7 @@
         if(sizeof($error_response)<=0){
              $expire_date = explode("-",$_POST['article_expire_date']);
              $data['article_expire_date'] = mktime(0,0,0,$expire_date[1],$expire_date[2],$expire_date[0]);
-             $error_response = is_exists($lang_file,$table_name="article_tbl",$field_name="article_title",$value=$data['article_title']);
+             $error_response = is_exists($lang_file,$table_name="article_tbl",$field_name="article_title",$value=$data['article_title'],"","");
            
             if(sizeof($error_response)<=0){
                  $article_post_response = insert_article_posting_data($data);
@@ -36,8 +36,18 @@
                          $data['last_inserted_article_id']=$article_post_response;
                          $data['article_category_name']=get_article_category_name_by_id($data['article_category_id']);
                          $data['organization_name'] = get_organization_name_by_id($data['organization_id']);
+                         $member_email=array();
                          $member_data = get_all_member_by_org_id($data['organization_id']);
-                         $article_posting_notification = send_article_posting_email($lang_file,$data,$member_data);
+                         
+                         if(mysql_num_rows($member_data)>0){
+                             $email_index=0;
+                            while($row= mysql_fetch_array($member_data)){ 
+                                $member_email[$email_index] = $row['member_email'];
+                                $email_index++;
+                            }
+                        }
+                
+                         $article_posting_notification = send_article_posting_email($lang_file,$data,$member_email);
                          //$data['success']=TRUE;
                          if($data['success']){
                              $update_aticle_tbl = update_article_tbl($data['last_inserted_article_id'],$data['article_posting_notification']);

@@ -19,24 +19,24 @@
         $org_registration_response=array();
                         
         if(sizeof($error_response)<=0){
-            $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_number",$value=$data['organization_number']);
+            $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_number",$value=$data['organization_number'],"","");
             if(sizeof($error_response)<=0){
-                $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_name",$value=$data['organization_name']);
+                $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_name",$value=$data['organization_name'],"","");
             }
             if(sizeof($error_response)<=0){
-                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_email",$value=$data['member_email']);
+                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_email",$value=$data['member_email'],"","");
             }
             if(sizeof($error_response)<=0){
-                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_user_name",$value=$data['organization_admin_user']);
+                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_user_name",$value=$data['organization_admin_user'],"","");
             }
             if(sizeof($error_response)<=0){
-                $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_admin_user",$value=$data['organization_admin_user']);
+                $error_response = is_exists($lang_file,$table_name="organization_tbl",$field_name="organization_admin_user",$value=$data['organization_admin_user'],"","");
             }
              if(sizeof($error_response)<=0){
-                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_pnr",$value=$data['member_pnr']);
+                $error_response = is_exists($lang_file,$table_name="member_tbl",$field_name="member_pnr",$value=$data['member_pnr'],"","");
             }
             if(sizeof($error_response)<=0){
-                $login_password =  mt_rand(1028438450, 999999999999);
+                $login_password =  mt_rand(1028438, 9999999);
                 echo $data['login_password']=$login_password;
                 $data['organization_admin_password'] = encrypt($login_password,'whateveryouwant');                
                 $org_registration_response = insert_organization_registration_data($data);

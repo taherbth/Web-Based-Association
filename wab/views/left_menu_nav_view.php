@@ -33,7 +33,7 @@
                                 }      
                         }
             ?>
-    
+    <li><a href='index.php?controller=change_pass'><?php echo $language['user_password'];?></a></li>    
     <li><a href="logout.php"><?php echo $language['admin_menu_logout'];?></a></li>   
 <?php } else {?>
         

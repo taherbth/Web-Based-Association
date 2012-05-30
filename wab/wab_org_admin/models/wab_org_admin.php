@@ -295,5 +295,25 @@ return TRUE;
                                                                                                                              
                                                   
     }
+    
+// Org admin info
+
+function get_admin_member_info($user_name,$organization_id){
+          $sql_org_info = "SELECT * FROM organization_tbl WHERE organization_id='".$organization_id."'";
+          $result =  mysql_query($sql_org_info);
+          return $result;     
+}
+
+// Change admin password
+function update_admin_password($data){
+    $sql = "UPDATE organization_tbl SET organization_admin_password ='".$data['new_pass']."' where organization_id='".$data['organization_id']."'";
+    $query = mysql_query($sql) or die(mysql_error());
+    if($query){       
+        $sql_mem = "UPDATE member_tbl SET member_login_password ='".$data['new_pass']."' where member_user_name='".$data['user_name']."' AND organization_id='".$data['organization_id']."' AND user_type='Administrator'";
+        $query = mysql_query($sql_mem) or die(mysql_error());
+        return TRUE;
+    }
+
+}
 ?>
 

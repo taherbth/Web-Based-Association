@@ -12,6 +12,23 @@
         return trim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256,$salt, base64_decode($text), MCRYPT_MODE_ECB, mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND))); 
     } 
     
+//Change pass Form validation 
+function change_pass_form_validation($data){
+       $error=array();
+       if(empty($data['old_pass'])){
+			$error['old_pass_error']= "Old password can not be empty!!";
+		}
+        
+        if(empty($data['new_pass'])){
+			$error['new_pass_error']= "New password can not be empty!!";
+		}
+        
+		if(empty($data['confirm_pass'])){
+			$error['confirm_pass_error']= "Confirm password can not be empty!!";
+		}
+        return $error;
+}
+
 
 //Member_Login Form validation 
 function member_login_form_validation($data){
@@ -51,7 +68,7 @@ function member_login_form_validation($data){
 			$error['member_address_error']= $language['member_address_error_text'];
 		}        
 		if($data['member_email']){
-            if (!preg_match("/^([a-zA-Z0-9])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)+/", $data['member_email']))
+            if (!preg_match("/^([a-zA-Z0-9_.])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)+/", $data['member_email']))
             
 				$error['member_email_error']=$language['member_invalid_email_error_text'];
 		}
@@ -91,8 +108,12 @@ function article_post_form_validation($data,$lang_file){
 
 //Article posting notification email...
 
-function send_article_posting_email($lang_file,$data,$member_data){
+function send_article_posting_email($lang_file,$data,$member_email){
+    
+    
     include($lang_file);
+    
+      
     $success=FALSE;
     $emailfrom ="admin@logic-coder.com";   
     $subject=$language['article_posted_email_subject_text']." | ".$language['site_heading_text']."\n\n";
@@ -101,16 +122,15 @@ function send_article_posting_email($lang_file,$data,$member_data){
     $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>".$language['site_heading_text'].".</span></td></tr></table>"."\n\n";
 	$message .= "<table cellpadding='0' cellspacing='0' width='660' style='margin:0 auto'><br/><br/>";
 	$message .= "<tr><td font-family: Arial,Helvetica,sans-serif; padding-top:18px; font-size:25px; color:rgb(102,102,102);><b>".$language['article_posted_email_subject_text']." | ".$language['site_heading_text'].".</b></td></tr></table>"."\n";
-	
+	$uid = md5(uniqid(time()));
    // $data['last_inserted_article_id']
     if($data['article_posting_notification']=="only_notification"){
-        $message2="<p>".$language['new_article_posted_text']." (".$data['organization_name'] .")'s ".$language['new_article_posted_main_board_with_text']." : </p>"."\n";
-        $message2 .="<p style='font-weight:bold;font-size:14px;'>".$language['article_title_text'].": <a style='font-weight:bold;font-size:14px;' href='".$data['BASE_URL']."/index.php?controller=article_comment&article_id=".$data['last_inserted_article_id']."'>".$data['article_title'] ."</a></p>"."\n";
-        $message2 .="<p>".$language['article_can_see_message_text']."</p>"."\n";
-        
-        $message3="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>".$language['site_heading_text'].".</span></td></tr></table>"."\n\n";
-	    $message3 .= "</body></html>\n";
-        
+        $message .=$message."<p>".$language['email_dear_text']. " Member,</p>"."\n";
+        $message .="<p>".$language['new_article_posted_text']." (".$data['organization_name'] .")'s ".$language['new_article_posted_main_board_with_text']." : </p>"."\n";
+        $message .="<p style='font-weight:bold;font-size:14px;'>".$language['article_title_text'].": <a style='font-weight:bold;font-size:14px;' href='".$data['BASE_URL']."/index.php?controller=article_comment&article_id=".$data['last_inserted_article_id']."'>".$data['article_title'] ."</a></p>"."\n";
+        $message .="<p>".$language['article_can_see_message_text']."</p>"."\n";        
+        $message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>".$language['site_heading_text'].".</span></td></tr></table>"."\n\n";
+	    $message .= "</body></html>\n";        
         $header  = "From: ".$language['site_heading_text']."<".$emailfrom.">\r\n";
         $header .= "Reply-To:".$emailfrom."\r\n";
         $header .= "MIME-Version: 1.0\r\n";
@@ -119,6 +139,22 @@ function send_article_posting_email($lang_file,$data,$member_data){
         $header .= "--".$uid."\r\n";
         $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
         $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+        $header .= $message."\r\n\r\n";
+        $header .= "--".$uid."\r\n";
+        $header .= "Content-Transfer-Encoding: base64\r\n";
+        
+        
+        ///////////
+            if(sizeof($member_email)>0){
+                for($i=0;$i<sizeof($member_email);$i++){ 
+                    //echo $message;
+                    
+                    if(mail($member_email[$i], $subject,"",$header)){
+                            $success=TRUE;
+                        }            
+                    }    
+            }
+        ////////
         
     }
     elseif($data['article_posting_notification']=="whole_article"){
@@ -132,6 +168,7 @@ function send_article_posting_email($lang_file,$data,$member_data){
         $message3="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>".$language['site_heading_text'].".</span></td></tr></table>"."\n\n";
 	    $message3 .= "</body></html>\n";
         
+        
         $header  = "From: ".$language['site_heading_text']."<".$emailfrom.">\r\n";
         $header .= "Reply-To:".$emailfrom."\r\n";
         $header .= "MIME-Version: 1.0\r\n";
@@ -143,24 +180,24 @@ function send_article_posting_email($lang_file,$data,$member_data){
         
     }
         
-    if(mysql_num_rows($member_data)>0){
-        while($row= mysql_fetch_array($member_data)){
-           
+    /*if(mysql_num_rows($member_data)>0){
+        while($row= mysql_fetch_array($member_data)){           
             $message4=$message."<p>".$language['email_dear_text']." ".$row['member_first_name'].",</p>"."\n";
             $message4 .= $message2;
             $message4 .= $message3;            
             $header2= $header.$message4."\r\n\r\n";
             $header2 .= "--".$uid."\r\n";
             $header2 .= "Content-Transfer-Encoding: base64\r\n";
-            //echo $message4;
-            $message4="";
-            $header2="";
+            echo $header2;
+            
             if(mail($member_data['member_email'], $subject,"",$header2)){
+                $message4="";
+                $header2="";
                 $success=TRUE;
             }            
         }    
         
-    }
+    }*/
     $data=array();
     $data['success']=$success;
     return $data;    

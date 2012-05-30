@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
                 exit;                
             }
         else{
-               $_SESSION['user_name']="";
+               $_SESSION['admin_user_error']=$language['admin_login_error'];
         }
     }
 }

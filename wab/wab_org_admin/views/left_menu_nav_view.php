@@ -6,6 +6,7 @@
         <li><a href="index.php?controller=article_proposal">
         <?php echo $language['admin_menu_article_proposal']; if(mysql_num_rows($article_proposal)>0){ echo "(".mysql_num_rows($article_proposal).")";} else echo "(0)";?>
         </a></li>
+        <li><a href='index.php?controller=change_pass'><?php echo $language['user_password'];?></a></li>    
         <li><a href="logout.php"><?php echo $language['admin_menu_logout'];?></a></li>
         
         

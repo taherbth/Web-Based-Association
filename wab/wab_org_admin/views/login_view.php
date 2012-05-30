@@ -27,7 +27,7 @@
 			<div class="userbox">
             <?php
             if(sizeof($error_response)<=0){
-                if(isset($_SESSION['user_name']) && empty($_SESSION['user_name'])){ ?> <div style="color:red; margin:10px 0px 0px 112px;clear:both"><?php echo "Bad username or password!!";}
+                if(isset($_SESSION['admin_user_error']) && !empty($_SESSION['admin_user_error'])){ ?> <div style="color:red; margin:10px 0px 0px 112px;clear:both"><?php echo $_SESSION['admin_user_error']."!!"; unset($_SESSION['admin_user_error']);}
             }?></div>
                 <form name="login" id="login" method="post" action="" enctype="multipart/form-data">
 

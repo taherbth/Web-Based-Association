@@ -38,7 +38,7 @@
 		}
         
 		if($data['member_email']){
-            if (!preg_match("/^([a-zA-Z0-9])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)+/", $data['member_email']))
+            if (!preg_match("/^([a-zA-Z0-9_.])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)+/", $data['member_email']))
             
 				$error['member_email_error']=$language['member_invalid_email_error_text'];
 		}
@@ -87,6 +87,8 @@ function send_org_registration_confirmation_email($data){
 	
     $header  = "From: Web Association Board <".$emailfrom.">\r\n";
     $header .= "Reply-To:".$emailfrom."\r\n";
+    
+    $uid = md5(uniqid(time()));
     $header .= "MIME-Version: 1.0\r\n";
     $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
     $header .= "This is a multi-part message in MIME format.\r\n";
@@ -97,7 +99,9 @@ function send_org_registration_confirmation_email($data){
     $header .= "--".$uid."\r\n";
     $header .= "Content-Transfer-Encoding: base64\r\n";
   
-  
+    //echo $message;
+    //echo $data['member_email'];
+    
 	if(mail($data['member_email'], $subject,"",$header))
 	 {   
           $data=array();
@@ -125,7 +129,7 @@ function send_member_registration_confirmation_email($data){
 	$message .= "<tr><td font-family: Arial,Helvetica,sans-serif; padding-top:18px; font-size:25px; color:rgb(102,102,102);><b>Registration Confirmation | Web Association Board.</b></td></tr></table>"."\n";
 	
 	$message .="<p>Dear ".$data['member_first_name'].",</p>"."\n";
-    $message .="<p>Congratulations!! You are successfully registered with the Organization (.".$data['org_name'] .")</p>"."\n";
+    $message .="<p>Congratulations!! You are successfully registered with the Organization (".$data['org_name'] .")</p>"."\n";
 	
     $message .= "<p>Your login details :"."</p>\n";
     $message .="<p><b>User :  </b>".$data['member_user_name']."</p>\n";
@@ -134,7 +138,7 @@ function send_member_registration_confirmation_email($data){
 	$message .="<table cellpadding='0' cellspacing='0' bgcolor=#319d00 width='100%' style='margin:0 auto'><tr style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; color: rgb(255,255,255); line-height: 140%;'><td width='23'></td><td><span>Web Association Board.</span></td></tr></table>"."\n\n";
 	$message .= "</body></html>\n";
 	
-	
+    $uid = md5(uniqid(time()));
     $header  = "From: Web Association Board <".$emailfrom.">\r\n";
     $header .= "Reply-To:".$emailfrom."\r\n";
     $header .= "MIME-Version: 1.0\r\n";
@@ -147,11 +151,12 @@ function send_member_registration_confirmation_email($data){
     $header .= "--".$uid."\r\n";
     $header .= "Content-Transfer-Encoding: base64\r\n";
   
-   echo $message;
+    //echo $message;
+    //echo $data['member_email'];
 	if(mail($data['member_email'], $subject,"",$header))
 	 {   
           $data=array();
-     	  $data['msg2']="Your registration successful !! A confirmation email sent to your email with your login information.";
+     	  $data['msg2']="Member registration successful !! A confirmation email sent to member email with his/her login information.";
 	 }
 	else
 	{
@@ -159,6 +164,24 @@ function send_member_registration_confirmation_email($data){
 	}
     
     return $data;    
+}
+
+
+/Change pass Form validation 
+function change_pass_form_validation($data){
+       $error=array();
+       if(empty($data['old_pass'])){
+			$error['old_pass_error']= "Old password can not be empty!!";
+		}
+        
+        if(empty($data['new_pass'])){
+			$error['new_pass_error']= "New password can not be empty!!";
+		}
+        
+		if(empty($data['confirm_pass'])){
+			$error['confirm_pass_error']= "Confirm password can not be empty!!";
+		}
+        return $error;
 }
 
 //Org_Login Form validation 
@@ -203,7 +226,7 @@ function org_login_form_validation($data){
 			$error['member_address_error']= $language['member_address_error_text'];
 		}        
 		if($data['member_email']){
-            if (!preg_match("/^([a-zA-Z0-9])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)+/", $data['member_email']))
+            if (!preg_match("/^([a-zA-Z0-9_.])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]+)+/", $data['member_email']))
             
 				$error['member_email_error']=$language['member_invalid_email_error_text'];
 		}

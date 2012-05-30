@@ -22,7 +22,7 @@ include_once("header_view.php");
             <div style="color:red; margin:10px 0px 0px 112px;clear:both">
             <?php
             if(sizeof($error_response)<=0){
-                if(isset($_SESSION['member_name']) && empty($_SESSION['member_name'])){ ?> <?php echo "Bad username or password!!";}
+                if(isset($_SESSION['user_error']) && !empty($_SESSION['user_error'])){ ?> <?php echo $_SESSION['user_error']."!!"; unset($_SESSION['user_error']);}
                else if(isset($_SESSION['member_name']) && !empty($_SESSION['member_name'])){ ?> <?php echo "Login Success!!";}}?>
                 </div>
                 <form name="login" id="login" method="post" action="" enctype="multipart/form-data">

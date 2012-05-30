@@ -2,8 +2,8 @@
 	session_start();
    
     
-	/*mysql_connect("localhost", "root", "") or die(mysql_error());
-	mysql_select_db("wab") or die(mysql_error());*/
+	mysql_connect("localhost", "root", "") or die(mysql_error());
+	mysql_select_db("wab") or die(mysql_error());
 	
 	$lang="";	
 	if(isset($_REQUEST['site_language'])){
@@ -30,7 +30,7 @@
     //End of Load Language file...
     
        
-    $config = array();
+    /*$config = array();
     $config['site_name']  = $language['site_heading_text'];
     $config['BASE_URL']   = 'http://localhost/wab';
     $config['BASE_DIR']	    = $_SERVER['DOCUMENT_ROOT']."/wab";
@@ -38,11 +38,21 @@
     $Config_host = 'localhost';
     $Config_user = 'root';
     $Config_password = '';
-    $Config_db = 'wab';
+    $Config_db = 'wab';*/
     
      
+          
+   /* $config = array();
+    $config['site_name']  = $language['site_heading_text'];
+    $config['BASE_URL']   = 'http://logic-coder.com/wab';
+    $config['BASE_DIR']	    = $_SERVER['DOCUMENT_ROOT']."/wab"
+    
+    $Config_host = 'vassit-eng-113786.phpmyadmin.mysql.binero.se';
+    $Config_user = '113786_mz67490';
+    $Config_password = 'Temp54321';
+    $Config_db = '113786-vassit-eng';   
 
 $dbcon = @mysql_pconnect($Config_host, $Config_user, $Config_password) or die(mysql_error());
-mysql_select_db($Config_db) or die(mysql_error());
+mysql_select_db($Config_db) or die(mysql_error());*/
 
 ?>

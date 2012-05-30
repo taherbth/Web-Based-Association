@@ -2,6 +2,7 @@
 	session_start();
 	mysql_connect("localhost", "root", "") or die(mysql_error());
 	mysql_select_db("wab") or die(mysql_error());
+    
 	
 	$lang="";	
 	if(isset($_REQUEST['site_language'])){

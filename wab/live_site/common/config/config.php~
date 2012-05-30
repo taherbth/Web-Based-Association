@@ -20,25 +20,24 @@
     //Load Language file...
     if(isset($_SESSION['site_language'])){
             if($_SESSION['site_language']=="sw"){
-                $lang_file ="./language/swedish/sw.php"; 		
+                $lang_file ="../common/language/swedish/sw.php"; 		
             }
             elseif($_SESSION['site_language']=="eng"){
-                $lang_file ="./language/english/eng.php"; 
+                $lang_file ="../common/language/english/eng.php"; 
             }
             include($lang_file);
     }
     //End of Load Language file...
-    
-       
+
     $config = array();
     $config['site_name']  = $language['site_heading_text'];
     $config['BASE_URL']   = 'http://datadoktor.se/wab';
-    $config['BASE_DIR']	    = $_SERVER['DOCUMENT_ROOT']."/wab";
-
-    $Config_host = 'wab123456.db.9356933.hostedresource.com';
-    $Config_user = 'wab123456';
-    $Config_password = 'Taher@bth13';
-    $Config_db = 'wab123456';
+    $config['BASE_DIR']	    = $_SERVER['DOCUMENT_ROOT']."/wab"
+    
+    $Config_host = 'vassit-eng-113786.phpmyadmin.mysql.binero.se';
+    $Config_user = '113786_mz67490';
+    $Config_password = 'Temp54321';
+    $Config_db = '113786-vassit-eng';    
     
      
 

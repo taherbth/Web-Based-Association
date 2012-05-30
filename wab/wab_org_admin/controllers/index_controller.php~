@@ -12,11 +12,10 @@ if(isset($_POST['login'])){
                 $_SESSION['organization_id']=$login_response;
                 $_SESSION['user_name']=$data['user_name'];
                 include_once("./views/admin_home_view.php");
-                exit;
-                
+                exit;                
             }
         else{
-               $_SESSION['user_name']="";
+               $_SESSION['user_error']=$language['admin_login_error'];
         }
     }
 }

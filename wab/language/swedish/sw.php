@@ -94,5 +94,11 @@
     $language['member_update_btn_text']="Update";
     $language['member_profile_update_text']="Profile Updated successfully!!";
     $language['member_profile_text']="Member Profile";
+    $language['user_login_error']="Bad username or password";   
+    $language['user_password'] ="Change password";
+    $language['old_pass_text'] = "Old password";
+    $language['new_pass_text'] = "New password";
+    $language['confirm_pass_text'] = "Confirm password";
+    $language['change_pass_text'] ="Confirm";
     
 ?>
